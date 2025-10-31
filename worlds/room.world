@@ -118,10 +118,10 @@
                         </mesh>
                     </geometry>
                     <material>
-                        <ambient>0.541 0.729 0.741 0.1</ambient>
-                        <diffuse>0.662 0.898 0.910 0.1</diffuse>
-                        <specular>0 0 0 0.1</specular>
-                        <emissive>0 0 0 0.1</emissive>
+                        <ambient>0.541 0.729 0.741 0.4</ambient>
+                        <diffuse>0.662 0.898 0.910 0.4</diffuse>
+                        <specular>0 0 0 0.4</specular>
+                        <emissive>0 0 0 0.4</emissive>
                     </material>
                 </visual>
                 <collision name="window_two_collision">
@@ -155,10 +155,10 @@
                         </mesh>
                     </geometry>
                     <material>
-                        <ambient>0.541 0.729 0.741 0.1</ambient>
-                        <diffuse>0.662 0.898 0.910 0.1</diffuse>
-                        <specular>0 0 0 0.1</specular>
-                        <emissive>0 0 0 0.1</emissive>
+                        <ambient>0.541 0.729 0.741 0.4</ambient>
+                        <diffuse>0.662 0.898 0.910 0.4</diffuse>
+                        <specular>0 0 0 0.4</specular>
+                        <emissive>0 0 0 0.4</emissive>
                     </material>
                 </visual>
                 <collision name="window_one_collision">
