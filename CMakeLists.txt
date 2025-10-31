@@ -43,7 +43,7 @@ install(DIRECTORY
 
 # Install world files
 install(DIRECTORY
-  launch worlds sdf
+  worlds
   DESTINATION share/${PROJECT_NAME}/
 )
 
