@@ -1,6 +1,6 @@
 # **IAM-Bot-ROS2-Package**
 This is a ROS2 Jazzy package capable of launching a URDF robot in Gazebo
-Mousa
+
 ## **Packet Structure**
 ```
 iam_bot
