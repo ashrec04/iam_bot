@@ -1,0 +1,7 @@
+Install OpenCV software package: sudo apt update
+                                 sudo apt install python3-opencv
+                                 
+Run the program: cd ~/opencvtest
+                 ./facedetect camera 
+
+If you want to detect faces in videos or images, use ./facedetect test.png
