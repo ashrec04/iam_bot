@@ -538,10 +538,10 @@
                         <emissive>0 0 0 1</emissive>
                     </material>
                 </visual>
-                <collision name="coffee_table_collision">
+                <collision name="coffee_table_col_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_coffee_table.stl</uri>
+                            <uri>meshes/coffee_table_col.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -575,10 +575,10 @@
                         <emissive>0 0 0 1</emissive>
                     </material>
                 </visual>
-                <collision name="sofa_collision">
+                <collision name="sofa_col_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_sofa.stl</uri>
+                            <uri>meshes/sofa_col.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -605,7 +605,7 @@
 
                 <collision name="collision">
                     <geometry>
-                        <cylinder><radius>0.18</radius><length>1.7</length></cylinder>
+                        <cylinder><radius>0.18</radius><length>1.8</length></cylinder>
                     </geometry>
                 </collision>
 
