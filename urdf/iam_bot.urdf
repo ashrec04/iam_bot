@@ -228,4 +228,27 @@
         <child link="left_caster_wheel" />
         <axis xyz="0.0 -3.705369344686452e-15 1.0" />
     </joint>
+
+    <gazebo reference="top_lidar_sensor">
+        <sensor name="laser" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <topic>scan</topic>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.3</min>
+                    <max>12</max>
+                </range>
+            </lidar>
+        </sensor>
+    </gazebo>    
 </robot>
