@@ -51,6 +51,9 @@ base_link
 - ros-jazzy-joint-state-publisher-gui
 - ros-jazzy-ros-gz
 - ros-jazzy-ros-gz-bridge
+- ros-jazzy-slam-toolbox
+- ros-jazzy-navigation2
+- ros-jazzy-teleop-twist-keyboard
 
 ## **Running the Package**
 This will take you through the steps on how to get iam bot running in Gazebo
