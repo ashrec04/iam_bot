@@ -209,7 +209,7 @@
                 </link>
         </model>
 
-        <model name = "dining">
+        <model name = "dining_table">
             <link name="table">
                 <pose>3.75 -4.305 0.04999999999999972 1.1102230246251563e-16 -2.7755575615628914e-17 -5.551115123125783e-17</pose>
                 <inertial>
@@ -247,6 +247,9 @@
                     </geometry>
                 </collision>
             </link>
+        </model>
+
+        <model name = "dining_chair_one">
             <link name="chair_one">
                 <pose>1.25 -3.5 1.0 0.0 -0.0 0.0</pose>
                 <inertial>
@@ -284,6 +287,9 @@
                     </geometry>
                 </collision>
             </link>
+        </model>
+
+        <model name = "dining_chair_two">
             <link name="chair_two">
                 <pose>1.25 -4.5 1.0 0.0 -0.0 0.0</pose>
                 <inertial>
@@ -321,6 +327,9 @@
                     </geometry>
                 </collision>
             </link>
+        </model>
+
+        <model name = "dining_chair_three">
             <link name="chair_three">
                 <pose>4.010226922721813 -3.286009274305133 1.0 0.0 -0.0 -3.1415926535895293</pose>
                 <inertial>
@@ -358,6 +367,9 @@
                     </geometry>
                 </collision>
             </link>
+        </model>
+
+        <model name = "dining_chair_four">
             <link name="chair_four">
                 <pose>4.010226922721549 -2.286009274305132 1.0 -1.2239669982569777e-29 -3.33066907387547e-16 -3.1415926535895293</pose>
                 <inertial>
@@ -398,7 +410,7 @@
             </link>
         </model>
 
-        <model name = "living_room">
+        <model name = "bookshelf">
             <link name="bookshelf">
                 <pose>5.6484587045685934 -4.899999999999997 1.05 0.0 -0.0 -3.1415926535889964</pose>
                 <inertial>
@@ -436,6 +448,9 @@
                     </geometry>
                 </collision>
             </link>
+        </model>
+
+        <model name = "sphere">
             <link name="sphere">
                 <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
                 <inertial>
@@ -473,6 +488,9 @@
                     </geometry>
                 </collision>
             </link>
+        </model>
+
+        <model name = "box">
             <link name="box">
                 <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
                 <inertial>
@@ -510,6 +528,9 @@
                     </geometry>
                 </collision>
             </link>
+        </model>
+
+        <model name = "coffee_table">
             <link name="coffee_table">
                 <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
                 <inertial>
@@ -547,6 +568,9 @@
                     </geometry>
                 </collision>
             </link>
+        </model>
+
+        <model name = "sofa">
             <link name="sofa">
                 <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
                 <inertial>
