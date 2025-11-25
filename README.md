@@ -3,27 +3,79 @@ This is a ROS2 Jazzy package capable of launching a URDF robot in Gazebo
 
 ## **Packet Structure**
 ```
-iam_bot
-├── CMakeLists.txt            #Build Config
-├── config
-├── include
-│   └── iam_bot
-├── launch
-│   └── iam_gazebo_launch.py
-├── package.xml               #Package context
-├── src
-└── urdf
-    ├── iam_bot.urdf          #Robot structure
-    └── meshes                #stl meshes refrenced in the URDF
-        ├── base_link.stl
-        ├── base_link_col.stl
-        ├── left_caster_connector.stl
-        ├── left_caster_wheel.stl
-        ├── left_wheel.stl
-        ├── right_caster_connector.stl
-        ├── right_caster_wheel.stl
-        ├── right_wheel.stl
-        └── top_lidar_sensor.stl
+robot_workspace
+├── camera_publisher
+│   ├── CMakeLists.txt
+│   ├── package.xml
+│   └── src
+│       └── camera_publisher_node.cpp
+├── face_detector
+│   ├── CMakeLists.txt
+│   ├── package.xml
+│   └── src
+│       └── face_detector_node.cpp
+├── iam_bot
+│   ├── build
+│   │   └── iam_bot
+│   │       └── CMakeFiles
+│   │           ├── 3.28.3
+│   │           │   ├── CompilerIdC
+│   │           │   │   └── tmp
+│   │           │   └── CompilerIdCXX
+│   │           │       └── tmp
+│   │           └── pkgRedirects
+│   ├── CMakeLists.txt
+│   ├── config
+│   ├── include
+│   │   └── iam_bot
+│   ├── install
+│   │   └── iam_bot
+│   │       └── share
+│   │           ├── colcon-core
+│   │           │   └── packages
+│   │           └── iam_bot
+│   ├── launch
+│   │   └── iam_gazebo_launch.py
+│   ├── package.xml
+│   ├── README.md
+│   ├── urdf
+│   │   ├── iam_bot.urdf
+│   │   └── meshes
+│   │       ├── base_link_col.stl
+│   │       ├── base_link.stl
+│   │       ├── left_caster_connector.stl
+│   │       ├── left_caster_wheel.stl
+│   │       ├── left_wheel.stl
+│   │       ├── right_caster_connector.stl
+│   │       ├── right_caster_wheel.stl
+│   │       ├── right_wheel.stl
+│   │       └── top_lidar_sensor.stl
+│   └── worlds
+│       ├── materials
+│       │   └── textures
+│       │       ├── eyebrow001.png
+│       │       ├── ...
+│       │       └── young_lightskinned_male_diffuse.png
+│       ├── meshes
+│       │   ├── coffee_table_col.stl
+│       │   ├── sofa_col.stl
+│       │   ├── standing.dae
+│       │   ├── world_bookshelf.stl
+│       │   ├── world_box.stl
+│       │   ├── world_chair.stl
+│       │   ├── world_coffee_table.stl
+│       │   ├── world_door.stl
+│       │   ├── world_floor.stl
+│       │   ├── world_sofa.stl
+│       │   ├── world_sphere.stl
+│       │   ├── world_table.stl
+│       │   ├── world_walls.stl
+│       │   ├── world_window_one.stl
+│       │   └── world_window_two.stl
+│       ├── model.config
+│       └── room.world
+└── README.md
+
 ```
 
 
