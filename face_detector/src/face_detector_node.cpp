@@ -67,7 +67,7 @@ private:
   // imageCallback()
   // Called every time a new image is received on the subscribed topic.
   // Performs:
-  //   1. ROS → OpenCV image conversion
+  //   1. ROS --> OpenCV image conversion
   //   2. Face detection
   //   3. Drawing bounding boxes
   //   4. Displaying face area in the window
@@ -90,7 +90,7 @@ private:
       return;
     }
 
-    // Convert frame to grayscale and equalize histogram
+    // Convert frame to grayscale and equalise histogram
     // Improves contrast and enhances detection performance
     cv::Mat gray;
     cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
