@@ -262,7 +262,6 @@
             <joint_name>right_caster_wheel_Revolute</joint_name>
             <joint_name>left_caster_Revolute</joint_name>
             <joint_name>left_caster_wheel_Revolute</joint_name>
-            <joint_name>top_lidar_Rigid</joint_name>
         </plugin>
     </gazebo>
 
