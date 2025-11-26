@@ -94,6 +94,12 @@ def generate_launch_description():
         arguments=['0','0','0','0','0','0','base_link','top_lidar_sensor'],
         output='screen'
     )
+    lidar_frame_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['-0.24983935','0.00000879','0.24008005','0','0','0','base_link','iam_bot/base_link/gpu_lidar'],
+        output='screen'
+    )
 
     return LaunchDescription([
         gz_resource_path,
@@ -101,6 +107,7 @@ def generate_launch_description():
         robot_state_publisher,
         bridge,
         transform_publisher,
+        lidar_frame_publisher,
         declare_rviz,
         rviz2,
         gz_launch,
