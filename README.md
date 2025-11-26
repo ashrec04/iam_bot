@@ -58,19 +58,7 @@ robot_workspace
 │       │       └── young_lightskinned_male_diffuse.png
 │       ├── meshes
 │       │   ├── coffee_table_col.stl
-│       │   ├── sofa_col.stl
-│       │   ├── standing.dae
-│       │   ├── world_bookshelf.stl
-│       │   ├── world_box.stl
-│       │   ├── world_chair.stl
-│       │   ├── world_coffee_table.stl
-│       │   ├── world_door.stl
-│       │   ├── world_floor.stl
-│       │   ├── world_sofa.stl
-│       │   ├── world_sphere.stl
-│       │   ├── world_table.stl
-│       │   ├── world_walls.stl
-│       │   ├── world_window_one.stl
+│       │   ├── ...
 │       │   └── world_window_two.stl
 │       ├── model.config
 │       └── room.world
@@ -106,6 +94,7 @@ base_link
 - ros-jazzy-slam-toolbox
 - ros-jazzy-navigation2
 - ros-jazzy-teleop-twist-keyboard
+- opencv
 
 ## **Running the Package**
 This will take you through the steps on how to get iam bot running in Gazebo
@@ -119,7 +108,7 @@ source ~/<insert your workspace name>/install/setup.bash
 cd ~/<insert your workspace name>
 colcon build --packages-select iam_bot
 ```
-### 3) Run the Launch Script
+### 3) Run iam bot Launch Script
 ```
 ros2 launch iam_bot iam_gazebo_launch.py 
 ```
