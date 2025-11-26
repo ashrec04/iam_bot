@@ -29,7 +29,7 @@
         <visual name="left_wheel_visual">
             <origin xyz="0.37160427410941455 0.031321737445734174 0.13277868183774832" rpy="3.0065623868209316e-15 9.473267377050172e-16 1.5707963267948957" />
             <geometry>
-                <mesh filename="package://urdf/meshes/left_wheel.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/left_wheel.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="WHEEL_BLACK"/>
         </visual>
@@ -50,14 +50,14 @@
         <visual name="base_link_visual">
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://urdf/meshes/base_link.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/base_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="CHASIS_BLUE"/>
         </visual>
         <collision name="base_link_collision">
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://urdf/meshes/base_link_col.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/base_link_col.stl" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -71,7 +71,7 @@
         <visual name="top_lidar_sensor_visual">
             <origin xyz="0.22158934999999993 0.00024120999999984366 -0.21008004999999996" rpy="4.930380657631321e-32 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://urdf/meshes/top_lidar_sensor.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/top_lidar_sensor.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="LIDAR_GREY"/>
         </visual>
@@ -92,7 +92,7 @@
         <visual name="right_caster_connector_visual">
             <origin xyz="0.20483935 -0.06500879000000001 -0.02858005" rpy="0.0 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://urdf/meshes/right_caster_connector.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/right_caster_connector.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="CASTER_SILVER"/>
         </visual>
@@ -113,7 +113,7 @@
         <visual name="right_caster_wheel_visual">
             <origin xyz="0.19659 -0.0140602 0.06830879000000001" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://urdf/meshes/right_caster_wheel.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/right_caster_wheel.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="WHEEL_BLACK"/>
         </visual>
@@ -134,7 +134,7 @@
         <visual name="left_caster_connector_visual">
             <origin xyz="0.20483935 0.06999121000000003 -0.0035800499999999948" rpy="0.0 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://urdf/meshes/left_caster_connector.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/left_caster_connector.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="CASTER_SILVER"/>
         </visual>
@@ -155,7 +155,7 @@
         <visual name="left_caster_wheel_visual">
             <origin xyz="0.195202854726494 -0.03091841522979793 0.06699120999999997" rpy="1.5707963267949003 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://urdf/meshes/left_caster_wheel.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/left_caster_wheel.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="WHEEL_BLACK"/>
         </visual>
@@ -176,7 +176,7 @@
         <visual name="right_wheel_visual">
             <origin xyz="-0.03480209 0.055330050000000006 -0.13473818" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://urdf/meshes/right_wheel.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://iam_bot/meshes/right_wheel.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="WHEEL_BLACK"/>
         </visual>
@@ -258,6 +258,11 @@
             <topic>joint_states</topic>
             <joint_name>right_wheel_Revolute</joint_name>
             <joint_name>left_wheel_Revolute</joint_name>
+            <joint_name>right_caster_Revolute</joint_name>
+            <joint_name>right_caster_wheel_Revolute</joint_name>
+            <joint_name>left_caster_Revolute</joint_name>
+            <joint_name>left_caster_wheel_Revolute</joint_name>
+            <joint_name>top_lidar_Rigid</joint_name>
         </plugin>
     </gazebo>
 

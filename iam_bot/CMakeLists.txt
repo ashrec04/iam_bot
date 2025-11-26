@@ -35,6 +35,12 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}/
 )
 
+# Install mesh files
+install(DIRECTORY
+  meshes
+  DESTINATION share/${PROJECT_NAME}/
+)
+
 # Install config files
 install(DIRECTORY
   config

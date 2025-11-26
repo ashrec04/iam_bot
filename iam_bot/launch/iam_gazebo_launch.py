@@ -15,7 +15,11 @@ def generate_launch_description():
     pkg_path = get_package_share_directory('iam_bot')
     urdf_path = os.path.join(pkg_path, 'urdf', 'iam_bot.urdf')
     world_path = os.path.join(pkg_path, 'worlds', 'room.world')
-    rviz_config_file = os.path.join(pkg_path, 'rviz', 'bot.rviz')
+    rviz_config_file = os.path.join(pkg_path, 'config', 'rviz.rviz')
+
+    #let Gazebo find meshes
+    mesh_pkg_dir = os.path.dirname(pkg_path)
+    os.environ["GZ_SIM_RESOURCE_PATH"] = os.environ.get('GZ_SIM_RESOURCE_PATH', '') + os.pathsep + mesh_pkg_dir
 
     gz_resource_path = SetEnvironmentVariable(
         name='GZ_SIM_RESOURCE_PATH',
@@ -50,7 +54,7 @@ def generate_launch_description():
     spawn_entity = Node(
         package='ros_gz_sim',
         executable='create',
-        arguments=['-file', urdf_path, '-name', 'iam_bot', '-x', '5.0', '-y', '-2.0', '-z', '0.5'],
+        arguments=['-topic', 'robot_description', '-name', 'iam_bot', '-x', '5.0', '-y', '-2.0', '-z', '0.5'],
         output='screen'
     )
 
