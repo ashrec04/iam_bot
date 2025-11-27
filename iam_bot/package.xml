@@ -4,7 +4,7 @@
   <name>iam_bot</name>
   <version>1.0.0</version>
   <description>Spawns IAM Bot into Gazebo using a python launch file</description>
-  <maintainer email="ashrec04@github.com">ash-record</maintainer>
+  <maintainer email="ashrec04@github.com">iam-bot-team</maintainer>
   <license>N/A</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
