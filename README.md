@@ -114,6 +114,8 @@ base_link
 - opencv
 - ros-jazzy-slam-toolbox
 - ros-jazzy-rviz-imu-plugin
+- ros-jazzy-nav2-bringup 
+- ros-jazzy-nav2-amcl
 
 ## **Running the Package**
 This will take you through the steps on how to get iam bot running in Gazebo
