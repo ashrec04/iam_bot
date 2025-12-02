@@ -5,6 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /TF1
         - /TF1/Frames1
         - /Imu1/Axes properties1
         - /Imu1/Acceleration properties1
@@ -152,7 +153,7 @@ Visualization Manager:
       Name: TF
       Show Arrows: false
       Show Axes: true
-      Show Names: false
+      Show Names: true
       Tree:
         map:
           odom:
@@ -355,25 +356,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 12.248552322387695
+      Distance: 2.7369613647460938
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 2.4044291973114014
-        Y: -3.5704314708709717
-        Z: 1.0442084074020386
+        X: 0.18824665248394012
+        Y: -0.4851212203502655
+        Z: 0.752345621585846
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9697970151901245
+      Pitch: 0.45479750633239746
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.7053985595703125
+      Yaw: 2.5953941345214844
     Saved: ~
 Window Geometry:
   Camera:
