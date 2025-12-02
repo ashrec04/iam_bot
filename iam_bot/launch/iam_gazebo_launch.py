@@ -15,7 +15,7 @@ def generate_launch_description():
     pkg_path = get_package_share_directory('iam_bot')
     urdf_path = os.path.join(pkg_path, 'urdf', 'iam_bot.urdf')
     world_path = os.path.join(pkg_path, 'worlds', 'room.world')
-    rviz_config_file = os.path.join(pkg_path, 'config', 'rviz.rviz')
+
 
     #let Gazebo find meshes
     mesh_pkg_dir = os.path.dirname(pkg_path)
@@ -29,14 +29,6 @@ def generate_launch_description():
         name='IGN_GAZEBO_RESOURCE_PATH',
         value=f"{pkg_path}:" + os.environ.get('IGN_GAZEBO_RESOURCE_PATH', '')
     )
-    
-    rviz = LaunchConfiguration('rviz')
-
-
-    declare_rviz = DeclareLaunchArgument(
-        name='rviz',
-        default_value='true',
-        description='Open rviz is set to True')
 
     #~~~ start gazebo server and client
     gz_launch = IncludeLaunchDescription(
@@ -56,15 +48,6 @@ def generate_launch_description():
         executable='create',
         arguments=['-topic', 'robot_description', '-name', 'iam_bot', '-x', '5.0', '-y', '-2.0', '-z', '0.5'],
         output='screen'
-    )
-
-    rviz2 = GroupAction(
-        condition=IfCondition(rviz),
-        actions=[Node(
-                    package='rviz2',
-                    executable='rviz2',
-                    arguments=['-d', rviz_config_file],
-                    output='screen',)]
     )
 
     #~~~ Robot State Publisher node
@@ -94,6 +77,7 @@ def generate_launch_description():
         arguments=['0','0','0','0','0','0','base_link','top_lidar_sensor'],
         output='screen'
     )
+    
     lidar_frame_publisher = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -108,8 +92,6 @@ def generate_launch_description():
         bridge,
         transform_publisher,
         lidar_frame_publisher,
-        declare_rviz,
-        rviz2,
         gz_launch,
         spawn_entity,
     ])
