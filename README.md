@@ -113,6 +113,7 @@ base_link
 - ros-jazzy-teleop-twist-keyboard
 - opencv
 - ros-jazzy-slam-toolbox
+- ros-jazzy-rviz-imu-plugin
 
 ## **Running the Package**
 This will take you through the steps on how to get iam bot running in Gazebo
