@@ -1,29 +1,33 @@
 # **IAM-Bot-ROS2-Package**
-This is a ROS2 Jazzy package capable of launching a URDF robot in Gazebo
+This is ROS2 Jazzy workspace consisting of multibple packages capabler of launching a URDF robot in Gazebo with visualisation in rviz
+
+# **Robot Features**
+- LIDAR - for SLAM mapping and navigation
+- Odometry Sensor - for SLAM mapping and navigation
+- Camera - for facial recognition
 
 ## **Packet Structure**
 ```
 robot_workspace
 ├── camera_publisher
+│   ├── build
 │   ├── CMakeLists.txt
+│   ├── config
+│   ├── include
+│   │   └── camera_publisher
 │   ├── package.xml
 │   └── src
 │       └── camera_publisher_node.cpp
 ├── face_detector
+│   ├── build
 │   ├── CMakeLists.txt
+│   ├── config
+│   ├── include
 │   ├── package.xml
 │   └── src
 │       └── face_detector_node.cpp
 ├── iam_bot
 │   ├── build
-│   │   └── iam_bot
-│   │       └── CMakeFiles
-│   │           ├── 3.28.3
-│   │           │   ├── CompilerIdC
-│   │           │   │   └── tmp
-│   │           │   └── CompilerIdCXX
-│   │           │       └── tmp
-│   │           └── pkgRedirects
 │   ├── CMakeLists.txt
 │   ├── config
 │   ├── include
@@ -36,20 +40,19 @@ robot_workspace
 │   │           └── iam_bot
 │   ├── launch
 │   │   └── iam_gazebo_launch.py
+│   ├── meshes
+│   │   ├── base_link_col.stl
+│   │   ├── base_link.stl
+│   │   ├── left_caster_connector.stl
+│   │   ├── left_caster_wheel.stl
+│   │   ├── left_wheel.stl
+│   │   ├── right_caster_connector.stl
+│   │   ├── right_caster_wheel.stl
+│   │   ├── right_wheel.stl
+│   │   └── top_lidar_sensor.stl
 │   ├── package.xml
-│   ├── README.md
 │   ├── urdf
-│   │   ├── iam_bot.urdf
-│   │   └── meshes
-│   │       ├── base_link_col.stl
-│   │       ├── base_link.stl
-│   │       ├── left_caster_connector.stl
-│   │       ├── left_caster_wheel.stl
-│   │       ├── left_wheel.stl
-│   │       ├── right_caster_connector.stl
-│   │       ├── right_caster_wheel.stl
-│   │       ├── right_wheel.stl
-│   │       └── top_lidar_sensor.stl
+│   │   └── iam_bot.urdf
 │   └── worlds
 │       ├── materials
 │       │   └── textures
@@ -62,7 +65,21 @@ robot_workspace
 │       │   └── world_window_two.stl
 │       ├── model.config
 │       └── room.world
+├── iam_navigation
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   └── slam_toolbox_mapping.yaml
+│   ├── include
+│   │   └── iam_navigation
+│   ├── launch
+│   │   └── iam_navigation_launch.py
+│   ├── LICENSE
+│   ├── package.xml
+│   ├── rviz
+│   │   └── rviz.rviz
+│   └── src
 └── README.md
+
 
 ```
 
