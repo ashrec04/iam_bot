@@ -1,4 +1,4 @@
-# **IAM Bot **
+# **IAM Bot**
 This is ROS2 Jazzy workspace consisting of multiple packages capable of launching IAM Bot in a Gazebo simulated environment with visualisation in rviz
 
 # **Robot Features**
