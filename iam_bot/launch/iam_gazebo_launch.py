@@ -16,7 +16,6 @@ def generate_launch_description():
     urdf_path = os.path.join(pkg_path, 'urdf', 'iam_bot.urdf')
     world_path = os.path.join(pkg_path, 'worlds', 'room.world')
 
-
     #let Gazebo find meshes
     mesh_pkg_dir = os.path.dirname(pkg_path)
     os.environ["GZ_SIM_RESOURCE_PATH"] = os.environ.get('GZ_SIM_RESOURCE_PATH', '') + os.pathsep + mesh_pkg_dir
@@ -50,6 +49,17 @@ def generate_launch_description():
         output='screen'
     )
 
+    #~~~ Face detector node
+    face_detector_node = Node (
+        package='face_detector',
+        executable='face_detector_node',
+        name='face_detector',
+        output='screen',
+        remappings=[
+            ('/camera/image_raw','/camera/image')
+        ]
+    )   
+
     #~~~ Robot State Publisher node
     robot_state_publisher = Node(
         package='robot_state_publisher',
@@ -67,6 +77,10 @@ def generate_launch_description():
             '/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model',
             '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
             '/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
+            '/camera/image@sensor_msgs/msg/Image@gz.msgs.Image',
+            '/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
+            '/camera/image@sensor_msgs/msg/Image@gz.msgs.Image',
+            '/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
         ],
         output='screen'
     )
@@ -94,4 +108,5 @@ def generate_launch_description():
         lidar_frame_publisher,
         gz_launch,
         spawn_entity,
+        face_detector_node
     ])

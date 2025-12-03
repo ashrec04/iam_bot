@@ -1,4 +1,3 @@
-
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <cv_bridge/cv_bridge.hpp>
@@ -29,7 +28,7 @@ public:
     // ---------------------------------------------
     // Load Haar Cascade classifier for face detection
     // ---------------------------------------------
-    cascade_path_ = "/usr/share/opencv4/haarcascades/haarcascade_frontalface_default.xml";
+    cascade_path_ = "/usr/share/opencv4/haarcascades/haarcascade_frontalface_alt2.xml";
     if (!face_cascade_.load(cascade_path_)) {
       RCLCPP_ERROR(get_logger(),
                    "Failed to load face cascade from: %s", cascade_path_.c_str());
@@ -67,7 +66,7 @@ private:
   // imageCallback()
   // Called every time a new image is received on the subscribed topic.
   // Performs:
-  //   1. ROS --> OpenCV image conversion
+  //   1. ROS → OpenCV image conversion
   //   2. Face detection
   //   3. Drawing bounding boxes
   //   4. Displaying face area in the window
@@ -90,7 +89,7 @@ private:
       return;
     }
 
-    // Convert frame to grayscale and equalise histogram
+    // Convert frame to grayscale and equalize histogram
     // Improves contrast and enhances detection performance
     cv::Mat gray;
     cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
@@ -103,10 +102,10 @@ private:
     face_cascade_.detectMultiScale(
       gray,
       faces,
-      1.1,        // scaleFactor: image is reduced by this rate at each scale
-      5,          // minNeighbors: detections needed to confirm a face
+      1.05,        // scaleFactor: image is reduced by this rate at each scale
+      2,          // minNeighbors: detections needed to confirm a face
       0,
-      cv::Size(30, 30));  // minimum face size
+      cv::Size(20, 20));  // minimum face size
 
     int max_area = 0;
     cv::Rect largest_face;
@@ -151,7 +150,7 @@ private:
     // Save the frame if the detected face area is large enough
     // Simulates “person is close enough” behavior
     // ---------------------------------------------
-    const int AREA_THRESHOLD = 50000;  // adjustable threshold
+    const int AREA_THRESHOLD = 200;  // adjustable threshold
 
     if (max_area > AREA_THRESHOLD) {
       // Build filename saved_faces/face_0001.png

@@ -229,6 +229,111 @@
         <child link="left_caster_wheel" />
         <axis xyz="0.0 -3.705369344686452e-15 1.0" />
     </joint>
+  <!-- =====================  CAMERA MODEL  ===================== -->
+
+  <!-- Fixed joint: attaches the camera pole to the base_link -->
+  <joint name="camera_pole_fixed" type="fixed">
+    <!-- Position of the pole base relative to base_link (x y z in meters) -->
+    <!-- Currently placed behind the LiDAR. Adjust as needed. -->
+    <origin xyz="-0.08 0.00 0.265" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="camera_pole_link"/>
+  </joint>
+
+  <!-- Camera pole link: represented as a simple cylinder -->
+  <link name="camera_pole_link">
+    <inertial>
+      <!-- Basic inertial values to avoid physics warnings -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.05"/>
+      <inertia
+        ixx="1e-5" ixy="0" ixz="0"
+        iyy="1e-5" iyz="0"
+        izz="1e-5"/>
+    </inertial>
+
+    <!-- Collision geometry -->
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- Cylinder radius / length (2 cm diameter, 8 cm height) -->
+        <cylinder radius="0.01" length="0.25"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual geometry -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.25"/>
+      </geometry>
+      <material name="CASTER_SILVER"/>
+    </visual>
+  </link>
+
+  <!-- Fixed joint: attaches the camera (sphere) to the top of the pole -->
+  <joint name="camera_fixed" type="fixed">
+    <!-- z=0.04 places the camera at the top of the pole (half of 0.08 m) -->
+    <origin xyz="0 0 0.125" rpy="0 -0.523 3.14159"/>
+    <parent link="camera_pole_link"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <!-- Camera body represented as a small sphere -->
+  <link name="camera_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.02"/>
+      <inertia
+        ixx="1e-5" ixy="0" ixz="0"
+        iyy="1e-5" iyz="0"
+        izz="1e-5"/>
+    </inertial>
+
+    <!-- Collision geometry -->
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- Sphere radius = 2 cm -->
+        <sphere radius="0.02"/>
+      </geometry>
+    </collision>
+    
+    <!-- Visual geometry -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+      <material name="WHEEL_BLACK"/>
+    </visual>
+  </link>
+
+  <!-- Optical frame for the camera (required by ROS camera conventions) -->
+  <joint name="camera_optical_joint" type="fixed">
+    <!-- Just rotate the frame to match REP-103 camera convention -->
+    <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
+    <parent link="camera_link"/>
+    <child link="camera_link_optical"/>
+  </joint>
+
+  <link name="camera_link_optical">
+    <!-- Minimal inertial to avoid warnings -->
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.0001"/>
+      <inertia
+        ixx="1e-7" ixy="0" ixz="0"
+        iyy="1e-7" iyz="0"
+        izz="1e-7"/>
+    </inertial>
+    <!-- No visual / collision: this is just a coordinate frame -->
+  </link>
+
+  <!-- Optional: set visual color for the camera link in Gazebo -->
+  <gazebo reference="camera_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
 
     <gazebo>
         <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
@@ -249,7 +354,6 @@
             <odom_frame>odom</odom_frame>
             <robot_base_frame>base_link</robot_base_frame>
             <odom_publish_frequency>50</odom_publish_frequency>
-            <publish_tf>true</publish_tf>
             <odom_topic>/odom</odom_topic>
             <tf_topic>/tf</tf_topic>
             <dimensions>2</dimensions>
@@ -305,5 +409,34 @@
             <topic>imu</topic>
         </sensor>
     </gazebo>
+  
+  <!-- =====================  GAZEBO CAMERA SENSOR  ===================== -->
+  <gazebo reference="camera_link">
+    <sensor name="sim_camera" type="camera">
+      <camera>
+        <horizontal_fov>1.3962634</horizontal_fov> <!-- 80 degrees -->
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>20.0</far>
+        </clip>
+
+        <!-- Important for ROS camera → use optical frame -->
+        <optical_frame_id>camera_link_optical</optical_frame_id>
+        <camera_info_topic>camera/camera_info</camera_info_topic>
+      </camera>
+
+      <always_on>1</always_on>
+      <update_rate>20</update_rate>
+
+      <!-- Gazebo publishes image here -->
+      <topic>camera/image</topic>
+    </sensor>
+  </gazebo>
 
 </robot>
+

@@ -7,6 +7,11 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Comm
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
+#----------------------#
+# Launch File for Navigatrion with Map File
+#----------------------#
+
+
 def generate_launch_description():
 
     pkg_path = get_package_share_directory('iam_navigation')
