@@ -28,7 +28,7 @@ public:
     // ---------------------------------------------
     // Load Haar Cascade classifier for face detection
     // ---------------------------------------------
-    cascade_path_ = "/usr/share/opencv4/haarcascades/haarcascade_frontalface_alt2.xml";
+    cascade_path_ = "/usr/share/opencv4/haarcascades/haarcascade_fullbody.xml";
     if (!face_cascade_.load(cascade_path_)) {
       RCLCPP_ERROR(get_logger(),
                    "Failed to load face cascade from: %s", cascade_path_.c_str());
@@ -103,7 +103,7 @@ private:
       gray,
       faces,
       1.05,        // scaleFactor: image is reduced by this rate at each scale
-      2,          // minNeighbors: detections needed to confirm a face
+      3,          // minNeighbors: detections needed to confirm a face
       0,
       cv::Size(20, 20));  // minimum face size
 
@@ -150,7 +150,7 @@ private:
     // Save the frame if the detected face area is large enough
     // Simulates “person is close enough” behavior
     // ---------------------------------------------
-    const int AREA_THRESHOLD = 200;  // adjustable threshold
+    const int AREA_THRESHOLD = 500;  // adjustable threshold
 
     if (max_area > AREA_THRESHOLD) {
       // Build filename saved_faces/face_0001.png
