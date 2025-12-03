@@ -1,5 +1,5 @@
-# **IAM-Bot-ROS2-Package**
-This is ROS2 Jazzy workspace consisting of multibple packages capabler of launching a URDF robot in Gazebo with visualisation in rviz
+# **IAM Bot **
+This is ROS2 Jazzy workspace consisting of multiple packages capable of launching IAM Bot in a Gazebo simulated environment with visualisation in rviz
 
 # **Robot Features**
 - LIDAR - for SLAM mapping and navigation
@@ -83,13 +83,17 @@ robot_workspace
 
 ```
 
-
-
 ## **Package Contents**
-- Complete Robot structure using stl's and a URDF file
-- Python launch file allowing the robot to spawn in the Gazebo environment successfully
+- iam_bot
+    - Complete Robot structure using stl's with a URDF file
+    - World file with relevant stl's and textures
+    - Python launch file allowing the robot to spawn in the Gazebo environment
+- iam_navigation
+    - SLAM Mapping launch file
+    - Shows the robots position in rviz and the generation of its map
+    - maps file where saved maps are stored
 
-## **IAM Bot Tree Structure**
+## **IAM Bot's Tree Structure**
 ```
 base_link
 ├── top_lidar_sensor
@@ -118,7 +122,7 @@ base_link
 - ros-jazzy-nav2-amcl
 
 ## **Running the Package**
-This will take you through the steps on how to get iam bot running in Gazebo
+This will take you through the steps on how to get iam bot running
 ### 1) Activate the Workspace Environment
 ```
 source /opt/ros/jazzy/setup.bash 
@@ -132,4 +136,13 @@ colcon build --packages-select iam_bot
 ### 3) Run iam bot Launch Script
 ```
 ros2 launch iam_bot iam_gazebo_launch.py 
+```
+### 4) Run iam bot navigation Launch Script
+#### Spawn the robot with no existing map
+```
+ros2 launch iam_bot_navigation iam_navigation_launch.py 
+```
+#### Spawn the robot with an existing map
+```
+ros2 launch iam_bot_navigation iam_localisation_launch.py 
 ```
