@@ -6,18 +6,16 @@
 #include <opencv2/objdetect.hpp>
 #include <opencv2/highgui.hpp>
 
-#include <sys/stat.h>   // for mkdir()
+#include <sys/stat.h> 
 #include <sys/types.h>
-#include <sstream>      // for stringstream (file names)
-#include <iomanip>      // for setw, setfill
-#include <algorithm>    // for std::max_element
+#include <sstream>
+#include <iomanip>
+#include <algorithm>
 
 // ================================================================
-// FaceDetectorNode
-// A ROS2 node that subscribes to camera images, performs face
-// detection using OpenCV's Haar Cascade classifier, visualizes
-// the results in a window, displays the detected face area,
-// and saves frames when a face exceeds a defined pixel threshold.
+// face_detector package
+// performs face detection using OpenCV's Haar Cascade classifier
+// shows result in a window, displaying a box around the detected face
 // ================================================================
 class FaceDetectorNode : public rclcpp::Node
 {
@@ -25,9 +23,7 @@ public:
   FaceDetectorNode() 
   : Node("face_detector_node"), image_counter_(0)
   {
-    // ---------------------------------------------
-    // Load Haar Cascade classifier for face detection
-    // ---------------------------------------------
+    //load Haar Cascade classifier
     cascade_path_ = "/usr/share/opencv4/haarcascades/haarcascade_fullbody.xml";
     if (!face_cascade_.load(cascade_path_)) {
       RCLCPP_ERROR(get_logger(),
@@ -36,12 +32,6 @@ public:
       RCLCPP_INFO(get_logger(),
                   "Loaded face cascade from: %s", cascade_path_.c_str());
     }
-
-    // ---------------------------------------------
-    // Subscription to the camera image topic
-    // This is expected to be published by another node
-    // (e.g., camera_publisher_node)
-    // ---------------------------------------------
     std::string topic = "/camera/image_raw";
 
     sub_ = create_subscription<sensor_msgs::msg::Image>(
@@ -53,28 +43,15 @@ public:
 
     RCLCPP_INFO(get_logger(), "FaceDetectorNode subscribed to %s", topic.c_str());
 
-    // Create a window for displaying real-time output
     cv::namedWindow("Face Detection", cv::WINDOW_AUTOSIZE);
 
-    // Create a directory for saving face images (ignore if exists)
     mkdir("saved_faces", 0777);
   }
 
 private:
-
-  // ================================================================
-  // imageCallback()
-  // Called every time a new image is received on the subscribed topic.
-  // Performs:
-  //   1. ROS → OpenCV image conversion
-  //   2. Face detection
-  //   3. Drawing bounding boxes
-  //   4. Displaying face area in the window
-  //   5. Saving frames when face area > threshold
-  // ================================================================
   void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg)
   {
-    // Convert ROS image message to OpenCV BGR8 format
+    //convert ROS image to OpenCV format
     cv_bridge::CvImagePtr cv_ptr;
     try {
       cv_ptr = cv_bridge::toCvCopy(msg, "bgr8");
@@ -89,31 +66,27 @@ private:
       return;
     }
 
-    // Convert frame to grayscale and equalize histogram
-    // Improves contrast and enhances detection performance
+    // convert to grayscale and equalize histogram
     cv::Mat gray;
     cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
     cv::equalizeHist(gray, gray);
 
-    // ---------------------------------------------
-    // Run Haar Cascade face detection
-    // ---------------------------------------------
+    // run face detection
     std::vector<cv::Rect> faces;
     face_cascade_.detectMultiScale(
       gray,
       faces,
-      1.05,        // scaleFactor: image is reduced by this rate at each scale
-      3,          // minNeighbors: detections needed to confirm a face
+      1.05, 
+      3,
       0,
-      cv::Size(20, 20));  // minimum face size
+      cv::Size(20, 20));
 
     int max_area = 0;
     cv::Rect largest_face;
 
-    // If one or more faces detected
     if (!faces.empty()) {
       for (const auto &r : faces) {
-        // Draw green rectangle around the detected face
+        //draw rectangle around detected face
         cv::rectangle(frame, r, cv::Scalar(0, 255, 0), 2);
 
         int area = r.width * r.height;
@@ -128,9 +101,6 @@ private:
                   faces.size(), max_area);
     }
 
-    // ---------------------------------------------
-    // Overlay detected face area text on the frame
-    // ---------------------------------------------
     std::string text;
     if (max_area > 0) {
       text = "Face area: " + std::to_string(max_area) + " px";
@@ -140,20 +110,16 @@ private:
 
     cv::putText(frame,
                 text,
-                cv::Point(10, 30),  // Position in the window
+                cv::Point(10, 30),
                 cv::FONT_HERSHEY_SIMPLEX,
                 0.7,
-                cv::Scalar(0, 255, 255),   // Yellow-green color
+                cv::Scalar(0, 255, 255),
                 2);
 
-    // ---------------------------------------------
-    // Save the frame if the detected face area is large enough
-    // Simulates “person is close enough” behavior
-    // ---------------------------------------------
-    const int AREA_THRESHOLD = 500;  // adjustable threshold
+    //save frame if the face area is large enough
+    const int AREA_THRESHOLD = 500;  //save threshold
 
     if (max_area > AREA_THRESHOLD) {
-      // Build filename saved_faces/face_0001.png
       std::stringstream ss;
       ss << "saved_faces/face_"
          << std::setw(4) << std::setfill('0') << image_counter_++
@@ -171,16 +137,11 @@ private:
       }
     }
 
-    // ---------------------------------------------
-    // Update the visualisation window
-    // ---------------------------------------------
+    // udate viz window
     cv::imshow("Face Detection", frame);
-    cv::waitKey(1);  // required for window refresh
+    cv::waitKey(1);
   }
 
-  // ================================================================
-  // Private member variables
-  // ================================================================
   std::string cascade_path_;
   cv::CascadeClassifier face_cascade_;
   rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr sub_;
@@ -188,10 +149,6 @@ private:
   int image_counter_;  // Used to increment saved image filenames
 };
 
-// ================================================================
-// main()
-// Initializes ROS, runs the node, and cleans up GUI windows.
-// ================================================================
 int main(int argc, char **argv)
 {
   rclcpp::init(argc, argv);
