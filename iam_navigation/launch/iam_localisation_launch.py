@@ -82,7 +82,7 @@ def generate_launch_description():
         output='screen',
     )
 
-    localization_launch = IncludeLaunchDescription(
+    localisation_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(nav2_localization_launch_path),
         launch_arguments={
                 'use_sim_time': LaunchConfiguration('use_sim_time'),
@@ -91,13 +91,11 @@ def generate_launch_description():
         }.items()
     )
 
-    launchDescriptionObject = LaunchDescription()
-
-    launchDescriptionObject.add_action(rviz_launch_arg)
-    launchDescriptionObject.add_action(rviz_config_arg)
-    launchDescriptionObject.add_action(sim_time_arg)
-    launchDescriptionObject.add_action(rviz_node)
-    launchDescriptionObject.add_action(interactive_marker_twist_server_node)
-    launchDescriptionObject.add_action(localization_launch)
-
-    return launchDescriptionObject
+    return LaunchDescription([
+        rviz_launch_arg,
+        rviz_config_arg,
+        sim_time_arg,
+        rviz_node,
+        interactive_marker_twist_server_node,
+        localisation_launch
+    ])

@@ -111,15 +111,12 @@ def generate_launch_description():
         }.items()
     )
 
-    launchDescriptionObject = LaunchDescription()
-
-    launchDescriptionObject.add_action(rviz_launch_arg)
-    launchDescriptionObject.add_action(rviz_config_arg)
-    launchDescriptionObject.add_action(sim_time_arg)
-    launchDescriptionObject.add_action(rviz_node)
-    launchDescriptionObject.add_action(interactive_marker_twist_server_node)
-    launchDescriptionObject.add_action(localisation_launch)
-    launchDescriptionObject.add_action(navigation_launch)
-
-
-    return launchDescriptionObject
+    return LaunchDescription([
+        rviz_launch_arg,
+        rviz_config_arg,
+        sim_time_arg,
+        rviz_node,
+        interactive_marker_twist_server_node,
+        localisation_launch,
+        navigation_launch
+    ])
