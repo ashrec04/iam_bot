@@ -69,14 +69,14 @@
             <inertia ixx="7.658129060059832e-05" iyy="0.00016331534109439126" izz="0.00018292909777217585" ixy="1.2253270879710822e-06" iyz="-6.807822780407632e-07" ixz="3.150541905402263e-05" />
         </inertial>
         <visual name="top_lidar_sensor_visual">
-            <origin xyz="0.22158934999999993 0.00024120999999984366 -0.21008004999999996" rpy="4.930380657631321e-32 -0.0 0.0" />
+            <origin xyz="0.14 0.00024120999999984366 -0.21008004999999996" rpy="4.930380657631321e-32 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://iam_bot/meshes/top_lidar_sensor.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="LIDAR_GREY"/>
         </visual>
         <collision name="top_lidar_sensor_collision">
-            <origin xyz="0.03 0 0.03" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-0.05 0 0.03" rpy="0.0 -0.0 0.0" />
             <geometry>
                 <box size="0.12 0.072 0.055"/>
             </geometry>
@@ -201,7 +201,7 @@
         <axis xyz="0.0 0.0 -1.0" />
     </joint>
     <joint name="top_lidar_Rigid" type="fixed">
-        <origin xyz="-0.24983935 8.79e-06 0.14008005" rpy="0.0 -0.0 0.0" />
+        <origin xyz="-0.24983935 8.79e-06 0.14008005" rpy="0 0 3.14159"/>
         <parent link="base_link" />
         <child link="top_lidar_sensor" />
     </joint>
@@ -356,10 +356,10 @@
             <ray>
                 <scan>
                     <horizontal>
-                        <samples>200</samples>
+                        <samples>300</samples>
                         <resolution>1</resolution>
-                        <min_angle>-3.14</min_angle>
-                        <max_angle>3.14</max_angle>
+                        <min_angle>-3.01</min_angle>
+                        <max_angle>3.01</max_angle>
                     </horizontal>
                     <vertical>
                         <samples>1</samples>

@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 #----------------------#
-# Launch File for Map generation
+# Launch file for autonomous navigation
 #----------------------#
 
 def generate_launch_description():
@@ -26,7 +26,7 @@ def generate_launch_description():
 
     rviz_config_arg = DeclareLaunchArgument(
         'rviz_config',
-        default_value='mapping.rviz',
+        default_value='navigation.rviz',
         description='rviz config file'
     )
 
@@ -44,16 +44,34 @@ def generate_launch_description():
     )
 
     #path to SLAM toolbox launch file
-    slam_toolbox_launch_path = os.path.join(
-        get_package_share_directory('slam_toolbox'),
+    nav2_localisation_launch_path = os.path.join(
+        get_package_share_directory('nav2_bringup'),
         'launch',
-        'online_async_launch.py'
+        'localization_launch.py'
     )
 
-    slam_toolbox_params_path = os.path.join(
+    nav2_navigation_launch_path = os.path.join(
+        get_package_share_directory('nav2_bringup'),
+        'launch',
+        'navigation_launch.py'
+    )
+
+    localisation_params_path = os.path.join(
         get_package_share_directory('iam_navigation'),
         'config',
-        'slam_toolbox_mapping.yaml'
+        'localisation.yaml'
+    )
+
+    navigation_params_path = os.path.join(
+        get_package_share_directory('iam_navigation'),
+        'config',
+        'navigation.yaml'
+    )
+
+    map_path = os.path.join(
+        get_package_share_directory('iam_navigation'),
+        'maps',
+        'map_save.yaml'
     )
 
     #launch rviz
@@ -75,20 +93,33 @@ def generate_launch_description():
         output='screen',
     )
 
-    #launch slam toolbox
-    slam_toolbox_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(slam_toolbox_launch_path),
+    localisation_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(nav2_localisation_launch_path),
         launch_arguments={
                 'use_sim_time': LaunchConfiguration('use_sim_time'),
-                'slam_params_file': slam_toolbox_params_path,
+                'params_file': localisation_params_path,
+                'map': map_path,
         }.items()
     )
 
-    return LaunchDescription([
-        rviz_launch_arg,
-        rviz_config_arg,
-        sim_time_arg,
-        rviz_node,
-        interactive_marker_twist_server_node,
-        slam_toolbox_launch
-    ])
+    #launch nav2
+    navigation_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(nav2_navigation_launch_path),
+        launch_arguments={
+                'use_sim_time': LaunchConfiguration('use_sim_time'),
+                'params_file': navigation_params_path,
+        }.items()
+    )
+
+    launchDescriptionObject = LaunchDescription()
+
+    launchDescriptionObject.add_action(rviz_launch_arg)
+    launchDescriptionObject.add_action(rviz_config_arg)
+    launchDescriptionObject.add_action(sim_time_arg)
+    launchDescriptionObject.add_action(rviz_node)
+    launchDescriptionObject.add_action(interactive_marker_twist_server_node)
+    launchDescriptionObject.add_action(localisation_launch)
+    launchDescriptionObject.add_action(navigation_launch)
+
+
+    return launchDescriptionObject

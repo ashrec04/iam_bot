@@ -79,23 +79,14 @@ def generate_launch_description():
             '/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
             '/camera/image@sensor_msgs/msg/Image@gz.msgs.Image',
             '/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
-            '/camera/image@sensor_msgs/msg/Image@gz.msgs.Image',
-            '/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
         ],
-        output='screen'
-    )
-
-    transform_publisher = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        arguments=['0','0','0','0','0','0','base_link','top_lidar_sensor'],
         output='screen'
     )
     
     lidar_frame_publisher = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments=['-0.24983935','0.00000879','0.24008005','0','0','0','base_link','iam_bot/base_link/gpu_lidar'],
+        arguments=['0','0','0.1','0','0','0','top_lidar_sensor','iam_bot/base_link/gpu_lidar'],
         output='screen'
     )
 
@@ -104,7 +95,6 @@ def generate_launch_description():
         ign_resource_path,
         robot_state_publisher,
         bridge,
-        transform_publisher,
         lidar_frame_publisher,
         gz_launch,
         spawn_entity,
