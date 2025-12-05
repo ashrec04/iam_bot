@@ -77,7 +77,7 @@ private:
       gray,
       faces,
       1.05, 
-      4,
+      5,
       0,
       cv::Size(30, 30));
 
@@ -117,7 +117,7 @@ private:
                 2);
 
     //save frame if the face area is large enough
-    const int AREA_THRESHOLD = 1000;  //save threshold
+    const int AREA_THRESHOLD = 1500;  //save threshold
 
     if (max_area > AREA_THRESHOLD) {
       std::stringstream ss;
