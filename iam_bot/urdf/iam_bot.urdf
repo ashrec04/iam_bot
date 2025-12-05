@@ -317,8 +317,8 @@
             <right_joint>right_wheel_Revolute</right_joint>
             <left_joint>left_wheel_Revolute</left_joint>
 
-            <wheel_separation>0.35</wheel_separation>
-            <wheel_radius>0.05</wheel_radius>
+            <wheel_separation>0.27</wheel_separation>
+            <wheel_radius>0.053</wheel_radius>
 
             <max_linear_acceleration>10</max_linear_acceleration>
 
