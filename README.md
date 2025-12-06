@@ -133,16 +133,12 @@ source ~/<insert your workspace name>/install/setup.bash
 cd ~/<insert your workspace name>
 colcon build --packages-select iam_bot
 ```
-### 3) Run iam bot Launch Script
-```
-ros2 launch iam_bot iam_gazebo_launch.py 
-```
-### 4) Run iam bot navigation Launch Script
+### 4) Run the iam bot Launch Script
 #### Spawn the robot with no existing map
 ```
-ros2 launch iam_bot_navigation iam_navigation_launch.py 
+ros2 launch iam_bot iam_mapping_launch.py 
 ```
 #### Spawn the robot with an existing map
 ```
-ros2 launch iam_bot_navigation iam_localisation_launch.py 
+ros2 launch iam_bot iam_navigation_launch.py 
 ```

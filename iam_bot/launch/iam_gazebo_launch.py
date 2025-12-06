@@ -11,6 +11,33 @@ from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch.conditions import IfCondition
 
+def GetSpawnLocation():
+    spawn_options = [['-x', '5.0', '-y', '-2.0', '-z', '0.5'],
+                     ['-x', '2.5', '-y', '-8.5', '-z', '0.5']]
+    env_choice = os.environ.get('IAM_SPAWN_CHOICE')
+
+    #if choice already loaded from env use it
+    if env_choice in ('1', '2'):
+        choice = int(env_choice)
+
+    else:
+        while True:
+            try:
+                choice = int(input(
+                    "Location 1: {}\nLocation 2: {}\nEnter a spawn location (1 or 2): "
+                    .format(spawn_options[0], spawn_options[1])))
+                
+            except ValueError:
+                choice = 0
+
+            if choice in (1, 2):
+                os.environ['IAM_SPAWN_CHOICE'] = str(choice)
+                break
+            print("Invalid option, please enter 1 or 2")
+
+    return spawn_options[choice - 1]
+
+
 def generate_launch_description():
     pkg_path = get_package_share_directory('iam_bot')
     urdf_path = os.path.join(pkg_path, 'urdf', 'iam_bot.urdf')
@@ -42,10 +69,11 @@ def generate_launch_description():
 
     #~~~ Nodes ~~~#
     #~~~ iam bot gazebo spawn node
+    spawn_location = GetSpawnLocation()
     spawn_entity = Node(
         package='ros_gz_sim',
         executable='create',
-        arguments=['-topic', 'robot_description', '-name', 'iam_bot', '-x', '5.0', '-y', '-2.0', '-z', '0.5'],
+        arguments=['-topic', 'robot_description', '-name', 'iam_bot', *spawn_location],
         output='screen'
     )
 
@@ -58,7 +86,7 @@ def generate_launch_description():
         remappings=[
             ('/camera/image_raw','/camera/image')
         ]
-    )   
+    )
 
     #~~~ Robot State Publisher node
     robot_state_publisher = Node(
@@ -98,5 +126,5 @@ def generate_launch_description():
         lidar_frame_publisher,
         gz_launch,
         spawn_entity,
-        face_detector_node
+        face_detector_node,
     ])
