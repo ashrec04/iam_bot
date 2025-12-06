@@ -25,46 +25,30 @@ find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
 
-# Include OpenCV header directories for compilation
+# Include OpenCV header directories
 include_directories(
   ${OpenCV_INCLUDE_DIRS}
 )
 
-# ================================================================
-# Declare the executable for this package.
-# face_detector_node.cpp implements the main face detection logic.
-# ================================================================
+# Declare the package executable
 add_executable(face_detector_node src/face_detector_node.cpp)
 
-# ================================================================
-# Link ROS2 dependencies to the executable.
-# These ensure that ROS2 message types, node APIs, and cv_bridge
-# are correctly linked during compilation.
-# ================================================================
+# Link ROS2 dependencies
 ament_target_dependencies(face_detector_node
   rclcpp
   sensor_msgs
   cv_bridge
 )
 
-# Link OpenCV libraries to enable image processing and visualization
+# Link OpenCV libraries
 target_link_libraries(face_detector_node
   ${OpenCV_LIBS}
 )
 
-# ================================================================
-# Install the built executable into the appropriate directory so
-# that it can be launched via `ros2 run face_detector face_detector_node`
-# ================================================================
 install(TARGETS
   face_detector_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# ================================================================
-# Mark this package as an ament package.
-# This allows ROS2 tools (colcon, ros2 run, ros2 launch, etc.)
-# to detect and use the package.
-# ================================================================
 ament_package()
 
