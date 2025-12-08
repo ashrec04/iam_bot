@@ -117,7 +117,7 @@ private:
                 2);
 
     //save frame if the face area is large enough
-    const int AREA_THRESHOLD = 1500;  //save threshold
+    const int AREA_THRESHOLD = 400;  //save threshold
 
     if (max_area > AREA_THRESHOLD) {
       std::stringstream ss;

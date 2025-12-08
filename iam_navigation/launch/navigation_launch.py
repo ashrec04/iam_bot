@@ -1,27 +1,27 @@
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, GroupAction, SetEnvironmentVariable
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
-#----------------------#
-# Launch file for autonomous navigation
-#----------------------#
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Launch file for autonomous navigation using SLAM toolbox
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 def generate_launch_description():
 
-    pkg_path = get_package_share_directory('iam_navigation')
+    iam_navigation_pkg = get_package_share_directory('iam_navigation')
 
-    gazebo_models_path, ignore_last_dir = os.path.split(pkg_path)
+    gazebo_models_path, ignore_last_dir = os.path.split(iam_navigation_pkg)
     os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
-    
+
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz',
         default_value='true',
-        description='Open rviz'
+        description='open rviz'
     )
 
     rviz_config_arg = DeclareLaunchArgument(
@@ -36,18 +36,11 @@ def generate_launch_description():
         description='Flag to set use_sim_time'
     )
 
-    #path to config file
+    #gen path to config file
     config_file_path = os.path.join(
         get_package_share_directory('interactive_marker_twist_server'),
         'config',
         'linear.yaml'
-    )
-
-    #path to SLAM toolbox launch file
-    nav2_localisation_launch_path = os.path.join(
-        get_package_share_directory('nav2_bringup'),
-        'launch',
-        'localization_launch.py'
     )
 
     nav2_navigation_launch_path = os.path.join(
@@ -56,29 +49,23 @@ def generate_launch_description():
         'navigation_launch.py'
     )
 
-    localisation_params_path = os.path.join(
-        get_package_share_directory('iam_navigation'),
-        'config',
-        'localisation.yaml'
-    )
-
     navigation_params_path = os.path.join(
         get_package_share_directory('iam_navigation'),
         'config',
         'navigation.yaml'
     )
 
-    map_path = os.path.join(
+    slam_toolbox_params_path = os.path.join(
         get_package_share_directory('iam_navigation'),
-        'maps',
-        'map_save.yaml'
+        'config',
+        'slam_toolbox_mapping.yaml'
     )
 
-    #launch rviz
+    # Launch rviz
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
-        arguments=['-d', PathJoinSubstitution([pkg_path, 'rviz', LaunchConfiguration('rviz_config')])],
+        arguments=['-d', PathJoinSubstitution([iam_navigation_pkg, 'rviz', LaunchConfiguration('rviz_config')])],
         condition=IfCondition(LaunchConfiguration('rviz')),
         parameters=[
             {'use_sim_time': LaunchConfiguration('use_sim_time')},
@@ -93,16 +80,21 @@ def generate_launch_description():
         output='screen',
     )
 
-    localisation_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(nav2_localisation_launch_path),
+    #path to SLAM Toolbox launch file
+    slam_toolbox_launch_path = os.path.join(
+        get_package_share_directory('slam_toolbox'),
+        'launch',
+        'online_async_launch.py'
+    )
+
+    slam_toolbox_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(slam_toolbox_launch_path),
         launch_arguments={
                 'use_sim_time': LaunchConfiguration('use_sim_time'),
-                'params_file': localisation_params_path,
-                'map': map_path,
+                'slam_params_file': slam_toolbox_params_path,
         }.items()
     )
 
-    #launch nav2
     navigation_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(nav2_navigation_launch_path),
         launch_arguments={
@@ -116,7 +108,7 @@ def generate_launch_description():
         rviz_config_arg,
         sim_time_arg,
         rviz_node,
-        interactive_marker_twist_server_node,
-        localisation_launch,
+        #interactive_marker_twist_server_node
+        slam_toolbox_launch,
         navigation_launch
-    ])
+        ])

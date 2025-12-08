@@ -12,7 +12,7 @@ from launch_ros.substitutions import FindPackageShare
 from launch.conditions import IfCondition
 
 def GetSpawnLocation():
-    spawn_options = [['-x', '5.0', '-y', '-2.0', '-z', '0.5'],
+    spawn_options = [['-x', '4.5', '-y', '-2.0', '-z', '0.5'],
                      ['-x', '2.5', '-y', '-8.5', '-z', '0.5']]
     env_choice = os.environ.get('IAM_SPAWN_CHOICE')
 
@@ -115,6 +115,7 @@ def generate_launch_description():
         package='tf2_ros',
         executable='static_transform_publisher',
         arguments=['0','0','0.1','0','0','0','top_lidar_sensor','iam_bot/base_link/gpu_lidar'],
+        parameters=[{'use_sim_time': True}],
         output='screen'
     )
 
