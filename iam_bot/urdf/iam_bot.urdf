@@ -18,34 +18,11 @@
     </material>
 
 
-
-
-    <link name="left_wheel">
-        <inertial>
-            <origin xyz="2.215487402943417e-06 -1.2770853251264923e-06 0.028132134803226502" rpy="0.0 -0.0 0.0" />
-            <mass value="0.22391054430731744" />
-            <inertia ixx="0.0002563571259650028" iyy="0.00025635048929468704" izz="0.0004042362139435962" ixy="1.3427957747461083e-13" iyz="7.380781082231419e-09" ixz="-1.2804091942524715e-08" />
-        </inertial>
-        <visual name="left_wheel_visual">
-            <origin xyz="0.37160427410941455 0.031321737445734174 0.13277868183774832" rpy="3.0065623868209316e-15 9.473267377050172e-16 1.5707963267948957" />
-            <geometry>
-                <mesh filename="package://iam_bot/meshes/left_wheel.stl" scale="0.001 0.001 0.001" />
-            </geometry>
-            <material name="WHEEL_BLACK"/>
-        </visual>
-        <collision name="left_wheel_collision">
-            <origin xyz="0 0 0.0275" rpy="3.0065623868209316e-15 9.473267377050172e-16 1.5707963267948957" />
-            <geometry>
-                <cylinder radius="0.053" length="0.055"/>
-            </geometry>
-        </collision>
-    </link>
-
     <link name="base_link">
         <inertial>
-            <origin xyz="-0.09398896984913316 -0.00033324205009904213 0.07713649206363926" rpy="0.0 0.0 0.0" />
-            <mass value="2.072741935105781" />
-            <inertia ixx="0.015324451649043452" iyy="0.029121616964427867" izz="0.03681388301778877" ixy="-4.936480620691103e-05" iyz="-1.4131264620040578e-05" ixz="0.00011474364571543993" />
+            <origin xyz="-0.0352454543100275 0.0015824434975905933 0.0771364920636392" rpy="0.0 0.0 0.0" />
+            <mass value="2.0727419351057805" />
+            <inertia ixx="0.015327537605484913" iyy="0.02905353801933924" izz="0.036748890029141605" ixy="-6.726906072750366e-05" iyz="-3.853568720294155e-05" ixz="-0.00014360474475757536" />
         </inertial>
         <visual name="base_link_visual">
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
@@ -64,12 +41,12 @@
 
     <link name="top_lidar_sensor">
         <inertial>
-            <origin xyz="0.02672210981515967 0.0002412625384381132 0.03237755864545555" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-0.05327789373475227 0.00024126358345519656 0.032377558645455516" rpy="0.0 -0.0 0.0" />
             <mass value="0.1901726292898517" />
-            <inertia ixx="7.658129060059832e-05" iyy="0.00016331534109439126" izz="0.00018292909777217585" ixy="1.2253270879710822e-06" iyz="-6.807822780407632e-07" ixz="3.150541905402263e-05" />
+            <inertia ixx="7.658129060059832e-05" iyy="0.00016331534109439213" izz="0.0001829290977721779" ixy="1.2253270879710772e-06" iyz="-6.807822780407666e-07" ixz="3.150541905402307e-05" />
         </inertial>
         <visual name="top_lidar_sensor_visual">
-            <origin xyz="0.14 0.00024120999999984366 -0.21008004999999996" rpy="4.930380657631321e-32 -0.0 0.0" />
+            <origin xyz="0.141589346450088 0.0002412110450169272 -0.21008005000000002" rpy="4.930380657631324e-32 7.778769097326458e-62 0.0" />
             <geometry>
                 <mesh filename="package://iam_bot/meshes/top_lidar_sensor.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -85,12 +62,12 @@
 
     <link name="right_caster_connector">
         <inertial>
-            <origin xyz="0.001405011953905806 2.106191058315332e-05 -0.0042219422652539865" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-0.001405018194140224 2.1056239806860333e-05 0.004221942265253964" rpy="0.0 -0.0 0.0" />
             <mass value="0.003960896655885569" />
-            <inertia ixx="1.5703162104020672e-07" iyy="1.6777567965928458e-07" izz="1.7443859290356117e-07" ixy="-5.709200945051732e-10" iyz="8.589987253253116e-10" ixz="4.1927853383486225e-08" />
+            <inertia ixx="1.570316210402406e-07" iyy="1.6777567965894916e-07" izz="1.7443859290327656e-07" ixy="5.709200945051732e-10" iyz="-8.589987253227705e-10" ixz="4.1927853383486225e-08" />
         </inertial>
         <visual name="right_caster_connector_visual">
-            <origin xyz="0.20483935 -0.06500879000000001 -0.02858005" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-0.20483935624023442 -0.06500879567077626 0.028580049999999954" rpy="3.141592653589793 -1.2863481996731663e-45 -3.141592653589793" />
             <geometry>
                 <mesh filename="package://iam_bot/meshes/right_caster_connector.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -106,12 +83,12 @@
 
     <link name="right_caster_wheel">
         <inertial>
-            <origin xyz="4.658980934379997e-09 1.4002450643424425e-09 0.003312139955989153" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-8.994579037135964e-10 -1.40024513317627e-09 -0.0037378543732345193" rpy="0.0 5.374300886053738e-138 0.0" />
             <mass value="0.014985308319104898" />
-            <inertia ixx="4.3853143064445654e-07" iyy="4.3853142698072056e-07" izz="7.995957318055781e-07" ixy="-6.776263578034403e-21" iyz="0.0" ixz="1.463672932855431e-18" />
+            <inertia ixx="4.385314306446463e-07" iyy="4.3853142697914847e-07" izz="7.995957318039654e-07" ixy="-4.1761948595190552e-53" iyz="-1.6940658945086007e-21" ixz="1.4094628242311558e-18" />
         </inertial>
         <visual name="right_caster_wheel_visual">
-            <origin xyz="0.19659 -0.0140602 0.06830879000000001" rpy="-1.5707963267948966 -0.0 0.0" />
+            <origin xyz="0.19658999444156117 -0.014060202800490156 0.061258795670776245" rpy="-1.5707963267948966 4.1908235589866305e-31 1.2246467991473515e-16" />
             <geometry>
                 <mesh filename="package://iam_bot/meshes/right_caster_wheel.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -127,12 +104,12 @@
 
     <link name="left_caster_connector">
         <inertial>
-            <origin xyz="0.001405011953904811 2.1061910583277665e-05 -0.004221942265253933" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-0.0014050181941392648 2.1056239806878097e-05 0.004221942265253977" rpy="0.0 -0.0 0.0" />
             <mass value="0.003960896655885583" />
-            <inertia ixx="1.5703162104011186e-07" iyy="1.6777567965852564e-07" izz="1.744385929027209e-07" ixy="-5.709200946271459e-10" iyz="8.589987253464874e-10" ixz="4.192785338341846e-08" />
+            <inertia ixx="1.5703162104011524e-07" iyy="1.677756796585392e-07" izz="1.7443859290273446e-07" ixy="5.709200946203696e-10" iyz="-8.589987253464874e-10" ixz="4.1927853383415075e-08" />
         </inertial>
         <visual name="left_caster_connector_visual">
-            <origin xyz="0.20483935 0.06999121000000003 -0.0035800499999999948" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-0.20483935624023444 0.0699912043292236 0.003580050000000039" rpy="3.141592653589793 -1.4464574968665423e-45 -3.141592653589793" />
             <geometry>
                 <mesh filename="package://iam_bot/meshes/left_caster_connector.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -148,12 +125,12 @@
 
     <link name="left_caster_wheel">
         <inertial>
-            <origin xyz="4.65898079227145e-09 -1.4002450621219965e-09 -0.0030121399559891503" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-8.994579392407331e-10 -1.400245086546903e-09 -0.0037378543732344395" rpy="0.0 -0.0 0.0" />
             <mass value="0.007044049388216182" />
-            <inertia ixx="2.0613770434115268e-07" iyy="2.061377026189382e-07" izz="3.7586092361299424e-07" ixy="-3.38813178901459e-21" iyz="-3.1699860619156578e-21" ixz="-7.085104434733461e-19" />
+            <inertia ixx="2.0613770434113236e-07" iyy="2.0613770261880267e-07" izz="3.758609236130891e-07" ixy="8.470329472543003e-21" iyz="-2.541098841762901e-21" ixz="7.047314121155779e-19" />
         </inertial>
         <visual name="left_caster_wheel_visual">
-            <origin xyz="0.195202854726494 -0.03091841522979793 0.06699120999999997" rpy="1.5707963267949003 -0.0 0.0" />
+            <origin xyz="0.19520284916805397 0.0309184124293078 -0.07374120432922356" rpy="-1.570796326794893 1.0487101509042141e-29 1.2246467991473535e-16" />
             <geometry>
                 <mesh filename="package://iam_bot/meshes/left_caster_wheel.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -167,14 +144,35 @@
         </collision>
     </link>
 
+    <link name="left_wheel">
+        <inertial>
+            <origin xyz="-8.568746958559359e-07 1.4811812641379873e-06 0.018754761281871434" rpy="0.0 -0.0 0.0" />
+            <mass value="0.5599991469099156" />
+            <inertia ixx="0.0002849471864668895" iyy="0.00028495462828476495" izz="0.00044933007774218894" ixy="-1.2132178942044109e-12" iyz="-1.4211056054184018e-08" ixz="8.202990692991942e-09" />
+        </inertial>
+        <visual name="left_wheel_visual">
+            <origin xyz="-1.9665515793576562e-09 1.1877144601157853e-10 4.451904072055868e-09" rpy="3.141592653589793 1.2246467991473532e-16 2.5407181807811967e-33" />
+            <geometry>
+                <mesh filename="package://iam_bot/meshes/left_wheel.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="WHEEL_BLACK"/>
+        </visual>
+        <collision name="left_wheel_collision">
+            <origin xyz="0 0 0.0275" rpy="3.0065623868209316e-15 9.473267377050172e-16 1.5707963267948957" />
+            <geometry>
+                <cylinder radius="0.053" length="0.055"/>
+            </geometry>
+        </collision>
+    </link>
+
     <link name="right_wheel">
         <inertial>
-            <origin xyz="-2.0393980372546137e-06 1.5439370204628489e-06 0.028132137687988515" rpy="0.0 -0.0 0.0" />
-            <mass value="0.22391054430278606" />
-            <inertia ixx="0.0002563570312582872" iyy="0.00025635053466559546" izz="0.00040423614978193575" ixy="-8.239692202193297e-10" iyz="-8.916929031960175e-09" ixz="1.1760889383465728e-08" />
+            <origin xyz="-8.566689725597598e-07 1.4809437212459642e-06 0.018754755483734335" rpy="0.0 -0.0 0.0" />
+            <mass value="0.559999146909916" />
+            <inertia ixx="0.00028494718646688774" iyy="0.0002849546593902824" izz="0.000449330108847696" ixy="-1.2130496260254198e-12" iyz="-1.4211056053280158e-08" ixz="8.205151334414462e-09" />
         </inertial>
         <visual name="right_wheel_visual">
-            <origin xyz="-0.03480209 0.055330050000000006 -0.13473818" rpy="1.5707963267948966 -0.0 0.0" />
+            <origin xyz="0.26999999803344843 -1.1877143712979432e-10 -1.3462330272773216e-09" rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://iam_bot/meshes/right_wheel.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -188,47 +186,50 @@
         </collision>
     </link>
 
-    <joint name="left_wheel_Revolute" type="continuous">
-        <origin xyz="0.03480209 -0.13487021000000002 0.055330050000000006" rpy="1.5707963267948966 -0.0 0.0" />
-        <parent link="base_link" />
-        <child link="left_wheel" />
-        <axis xyz="0.0 0.0 1.0" />
-    </joint>
-    <joint name="right_wheel_Revolute" type="continuous">
-        <origin xyz="0.03480209 0.13473818 0.055330050000000006" rpy="-1.5707963267948966 -0.0 0.0" />
-        <parent link="base_link" />
-        <child link="right_wheel" />
-        <axis xyz="0.0 0.0 -1.0" />
-    </joint>
-    
-    <joint name="top_lidar_Rigid" type="fixed">
-        <origin xyz="-0.24983935 8.79e-06 0.14008005" rpy="0 0 3.14159"/>
+    <joint name="top_lidar_fixed" type="fixed">
+        <origin xyz="0.12119571000000001 0.00233422 0.14008005" rpy="0.0 -0.0 0.0" />
         <parent link="base_link" />
         <child link="top_lidar_sensor" />
     </joint>
-    <joint name="right_caster_Revolute" type="continuous">
-        <origin xyz="-0.20483935 0.06500879000000001 0.02858005" rpy="0.0 -0.0 0.0" />
+
+    <joint name="right_caster_connector_revolute" type="continuous">
+        <origin xyz="0.07619571 -0.06266578 0.02858005" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
         <child link="right_caster_connector" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="right_caster_wheel_Revolute" type="continuous">
-        <origin xyz="0.008249349999999999 0.003300000000000001 -0.014519849999999999" rpy="1.5707963267948966 -0.0 0.0" />
+    <joint name="right_caster_wheel_revolute" type="continuous">
+        <origin xyz="-0.008249359999999992 -0.00375 0.014519849999999999" rpy="1.5707963267948966 1.5557538194652854e-61 -2.465190328815662e-32" />
         <parent link="right_caster_connector" />
         <child link="right_caster_wheel" />
-        <axis xyz="0.0 0.0 1.0" />
+        <axis xyz="-2.465190328815662e-32 3.454467422037821e-77 -1.0" />
     </joint>
-    <joint name="left_caster_Revolute" type="continuous">
-        <origin xyz="-0.20483935 -0.06999121 0.02858005" rpy="0.0 -0.0 0.0" />
+
+    <joint name="left_caster_connector_revolute" type="continuous">
+        <origin xyz="0.07619571 0.07233422 0.02858005" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
         <child link="left_caster_connector" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="left_caster_wheel_Revolute" type="continuous">
-        <origin xyz="0.008249349999999999 0.003300000000000001 -0.014519849999999999" rpy="-1.5707963267949003 -0.0 0.0" />
+    <joint name="left_caster_wheel_revolute" type="continuous">
+        <origin xyz="-0.008249359999999992 -0.00375 0.014519849999999999" rpy="1.5707963267948966 -0.0 8.49445851048923e-121" />
         <parent link="left_caster_connector" />
         <child link="left_caster_wheel" />
-        <axis xyz="0.0 -3.705369344686452e-15 1.0" />
+        <axis xyz="8.49445851048923e-121 0.0 -1.0" />
+    </joint>
+
+    <joint name="left_wheel_revolute" type="continuous">
+        <origin xyz="-0.16448079000000002 0.13288779 0.055330050000000006" rpy="-1.5707963267948968 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="left_wheel" />
+        <axis xyz="0.0 -2.2204460492503126e-16 1.0" />
+    </joint>
+
+    <joint name="right_wheel_revolute" type="continuous">
+        <origin xyz="-0.16448079000000002 -0.1367206 0.055330050000000006" rpy="1.5707963267948966 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="right_wheel" />
+        <axis xyz="0.0 0.0 -1.0" />
     </joint>
 
     <joint name="camera_pole_fixed" type="fixed">
@@ -315,8 +316,8 @@
     <!--   gz publishers   -->
     <gazebo>
         <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
-            <right_joint>right_wheel_Revolute</right_joint>
-            <left_joint>left_wheel_Revolute</left_joint>
+            <right_joint>right_wheel_revolute</right_joint>
+            <left_joint>left_wheel_revolute</left_joint>
 
             <wheel_separation>0.27</wheel_separation>
             <wheel_radius>0.053</wheel_radius>
@@ -339,12 +340,12 @@
       
         <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
             <topic>joint_states</topic>
-            <joint_name>right_wheel_Revolute</joint_name>
-            <joint_name>left_wheel_Revolute</joint_name>
-            <joint_name>right_caster_Revolute</joint_name>
-            <joint_name>right_caster_wheel_Revolute</joint_name>
-            <joint_name>left_caster_Revolute</joint_name>
-            <joint_name>left_caster_wheel_Revolute</joint_name>
+            <joint_name>right_wheel_revolute</joint_name>
+            <joint_name>left_wheel_revolute</joint_name>
+            <joint_name>right_caster_connector_revolute</joint_name>
+            <joint_name>right_caster_wheel_revolute</joint_name>
+            <joint_name>left_caster_connector_revolute</joint_name>
+            <joint_name>left_caster_wheel_revolute</joint_name>
         </plugin>
     </gazebo>
 
