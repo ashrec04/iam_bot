@@ -14,9 +14,15 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
 
     iam_navigation_pkg = get_package_share_directory('iam_navigation')
-
     gazebo_models_path, ignore_last_dir = os.path.split(iam_navigation_pkg)
     os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
+
+    map_path = os.path.join(
+        get_package_share_directory('iam_navigation'),
+        'maps',
+        'map_save.yaml'
+    )
+
 
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz',
@@ -99,7 +105,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(nav2_navigation_launch_path),
         launch_arguments={
                 'use_sim_time': LaunchConfiguration('use_sim_time'),
-                'params_file': navigation_params_path,
+                'params_file': navigation_params_path
         }.items()
     )
 

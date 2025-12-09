@@ -198,8 +198,9 @@
         <origin xyz="0.03480209 0.13473818 0.055330050000000006" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="right_wheel" />
-        <axis xyz="0.0 0.0 1.0" />
+        <axis xyz="0.0 0.0 -1.0" />
     </joint>
+    
     <joint name="top_lidar_Rigid" type="fixed">
         <origin xyz="-0.24983935 8.79e-06 0.14008005" rpy="0 0 3.14159"/>
         <parent link="base_link" />
