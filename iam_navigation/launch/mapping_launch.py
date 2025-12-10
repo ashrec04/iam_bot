@@ -14,9 +14,6 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
 
     pkg_path = get_package_share_directory('iam_navigation')
-
-    gazebo_models_path, ignore_last_dir = os.path.split(pkg_path)
-    os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
     
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz',
@@ -86,7 +83,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         rviz_launch_arg,
-        rviz_config_arg,
+        # rviz_config_arg,
         sim_time_arg,
         rviz_node,
         interactive_marker_twist_server_node,
