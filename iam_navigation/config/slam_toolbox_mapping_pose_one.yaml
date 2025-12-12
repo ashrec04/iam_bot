@@ -20,9 +20,9 @@ slam_toolbox:
     # Load map save params
     # or at the dock, but they are mutually exclusive, if pose is given
     # will use pose
-    map_file_name: maps/map_save
+    map_file_name: /home/ash-record/robot_ws/src/iam_navigation/maps/map_serialize
     map_start_pose: [4.5, -2.0, 0.0]
-    #map_start_at_dock: true
+    # map_start_at_dock: true
 
     debug_logging: true
     throttle_scans: 1

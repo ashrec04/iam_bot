@@ -17,13 +17,6 @@ def generate_launch_description():
     gazebo_models_path, ignore_last_dir = os.path.split(iam_navigation_pkg)
     os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
 
-    map_path = os.path.join(
-        get_package_share_directory('iam_navigation'),
-        'maps',
-        'map_save.yaml'
-    )
-
-
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz',
         default_value='true',
@@ -42,13 +35,6 @@ def generate_launch_description():
         description='Flag to set use_sim_time'
     )
 
-    #gen path to config file
-    config_file_path = os.path.join(
-        get_package_share_directory('interactive_marker_twist_server'),
-        'config',
-        'linear.yaml'
-    )
-
     nav2_navigation_launch_path = os.path.join(
         get_package_share_directory('nav2_bringup'),
         'launch',
@@ -64,7 +50,7 @@ def generate_launch_description():
     slam_toolbox_params_path = os.path.join(
         get_package_share_directory('iam_navigation'),
         'config',
-        'slam_toolbox_mapping.yaml'
+        'slam_toolbox_mapping_pose_two.yaml'
     )
 
     # Launch rviz
@@ -76,14 +62,6 @@ def generate_launch_description():
         parameters=[
             {'use_sim_time': LaunchConfiguration('use_sim_time')},
         ]
-    )
-
-    interactive_marker_twist_server_node = Node(
-        package='interactive_marker_twist_server',
-        executable='marker_server',
-        name='twist_server_node',
-        parameters=[config_file_path],
-        output='screen',
     )
 
     #path to SLAM Toolbox launch file
@@ -105,7 +83,8 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(nav2_navigation_launch_path),
         launch_arguments={
                 'use_sim_time': LaunchConfiguration('use_sim_time'),
-                'params_file': navigation_params_path
+                'params_file': navigation_params_path,
+                'slam': 'false' 
         }.items()
     )
 
@@ -114,7 +93,6 @@ def generate_launch_description():
         rviz_config_arg,
         sim_time_arg,
         rviz_node,
-        #interactive_marker_twist_server_node
         slam_toolbox_launch,
         navigation_launch
         ])
