@@ -17,6 +17,11 @@ def generate_launch_description():
     gazebo_models_path, ignore_last_dir = os.path.split(iam_navigation_pkg)
     os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
 
+
+    #Choose SLAM config based on spawn choice used by iam_gazebo_launch
+    spawn_choice = os.environ.get('IAM_SPAWN_CHOICE', '1')
+    slam_config_file = 'slam_toolbox_mapping_pose_two.yaml' if spawn_choice == '2' else 'slam_toolbox_mapping_pose_one.yaml'
+
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz',
         default_value='true',
@@ -42,15 +47,15 @@ def generate_launch_description():
     )
 
     navigation_params_path = os.path.join(
-        get_package_share_directory('iam_navigation'),
+        iam_navigation_pkg,
         'config',
         'navigation.yaml'
     )
 
     slam_toolbox_params_path = os.path.join(
-        get_package_share_directory('iam_navigation'),
+        iam_navigation_pkg,
         'config',
-        'slam_toolbox_mapping_pose_two.yaml'
+        slam_config_file
     )
 
     # Launch rviz
