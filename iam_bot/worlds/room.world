@@ -44,231 +44,189 @@
             <specular>1 1 1 0</specular>
             <direction>1 0 -0.5</direction>
         </light>
-        
+
         <model name="room">
             <static>true</static>
-                <link name="floor">
-                    <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
-                    <inertial>
-                        <mass>2100.0</mass>
-                        <pose>2.8000000000000003 -4.805 0.025 0.0 0.0 0.0</pose>
-                        <inertia>
-                            <ixx>17500.437500000015</ixx>
-                            <iyy>6300.437499999996</iyy>
-                            <izz>23800.000000000015</izz>
-                            <ixy>0.0</ixy>
-                            <iyz>2.842170943040401e-14</iyz>
-                            <ixz>0.0</ixz>
-                        </inertia>
-                    </inertial>
-                    <visual name="floor_visual">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_floor.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                        <material>
-                            <ambient>0.678 0.490 0.243 1</ambient>
-                            <diffuse>0.901 0.690 0.416 1</diffuse>
-                            <specular>0.2 0.2 0.2 1</specular>
-                            <emissive>0 0 0 1</emissive>
-                        </material>
-                    </visual>
-                    <collision name="floor_collision">
-                        <pose>0 0 0.05 0 0 0</pose>
-                        <geometry>
-                            <plane>
-                                <normal>0 0 1</normal>
-                                <size>100 100</size>
-                            </plane>
-                        </geometry>
-                    </collision>
-                </link>
-                <link name="walls">
-                    <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
-                    <inertial>
-                        <mass>3117.891225</mass>
-                        <pose>2.836662471062473 -4.677193059850092 1.48039856890774 0.0 0.0 0.0</pose>
-                        <inertia>
-                            <ixx>50414.834671058765</ixx>
-                            <iyy>24072.333117455928</iyy>
-                            <izz>69371.22807103347</izz>
-                            <ixy>742.5314620847785</ixy>
-                            <iyz>-195.23980573716472</iyz>
-                            <ixz>-351.08824681010265</ixz>
-                        </inertia>
-                    </inertial>
-                    <visual name="walls_visual">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_walls.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                        <material>
-                            <ambient>0.541 0.729 0.741 1</ambient>
-                            <diffuse>0.662 0.898 0.910 1</diffuse>
-                            <specular>0 0 0 1</specular>
-                            <emissive>0 0 0 1</emissive>
-                        </material>
-                    </visual>
-                    <collision name="walls_collision">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_walls.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                    </collision>
-                </link>
-                <link name="window_two">
-                    <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
-                    <inertial>
-                        <mass>707.8499999999999</mass>
-                        <pose>-0.2325 -3.0525 1.75 0.0 0.0 0.0</pose>
-                        <inertia>
-                            <ixx>663.609375</ixx>
-                            <iyy>132.97109718750016</iyy>
-                            <izz>531.1367221874989</izz>
-                            <ixy>0.0</ixy>
-                            <iyz>4.547473508864641e-13</iyz>
-                            <ixz>0.0</ixz>
-                        </inertia>
-                    </inertial>
-                    <visual name="window_two_visual">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_window_two.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                        <material>
-                            <ambient>0.541 0.729 0.741 0.4</ambient>
-                            <diffuse>0.662 0.898 0.910 0.4</diffuse>
-                            <specular>0 0 0 0.4</specular>
-                            <emissive>0 0 0 0.4</emissive>
-                        </material>
-                    </visual>
-                    <collision name="window_two_collision">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_window_two.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                    </collision>
-                </link>
-                <link name="window_one">
-                    <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
-                    <inertial>
-                        <mass>707.8499999999999</mass>
-                        <pose>-0.2325 -6.5525 1.75 0.0 0.0 0.0</pose>
-                        <inertia>
-                            <ixx>663.609375</ixx>
-                            <iyy>132.97109718750016</iyy>
-                            <izz>531.1367221874971</izz>
-                            <ixy>0.0</ixy>
-                            <iyz>1.8189894035458565e-12</iyz>
-                            <ixz>0.0</ixz>
-                        </inertia>
-                    </inertial>
-                    <visual name="window_one_visual">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_window_one.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                        <material>
-                            <ambient>0.541 0.729 0.741 0.4</ambient>
-                            <diffuse>0.662 0.898 0.910 0.4</diffuse>
-                            <specular>0 0 0 0.4</specular>
-                            <emissive>0 0 0 0.4</emissive>
-                        </material>
-                    </visual>
-                    <collision name="window_one_collision">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_window_one.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                    </collision>
-                </link>
-                <link name="door">
-                    <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
-                    <inertial>
-                        <mass>80.90622930238219</mass>
-                        <pose>4.153415651129651 0.23000000000000004 1.1506027619640562 0.0 0.0 0.0</pose>
-                        <inertia>
-                            <ixx>32.39450110252231</ixx>
-                            <iyy>42.121416600180055</iyy>
-                            <izz>9.768176718958557</izz>
-                            <ixy>2.842170943040401e-14</ixy>
-                            <iyz>0.0</iyz>
-                            <ixz>-0.020559487279513178</ixz>
-                        </inertia>
-                    </inertial>
-                    <visual name="door_visual">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_door.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                        <material>
-                            <ambient>0.400 0.239 0.051 1</ambient>
-                            <diffuse>0.569 0.341 0.078 1</diffuse>
-                            <specular>0.4 0.4 0.4 1</specular>
-                            <emissive>0 0 0 1</emissive>
-                        </material>
-                    </visual>
-                    <collision name="door_collision">
-                        <geometry>
-                            <mesh>
-                                <uri>meshes/world_door.stl</uri>
-                                <scale>0.001 0.001 0.001</scale>
-                            </mesh>
-                        </geometry>
-                    </collision>
-                </link>
-        </model>
-
-        <model name = "dining_table">
-            <static>true</static>
-            <link name="table">
-                <pose>3.75 -4.305 0.04999999999999972 1.1102230246251563e-16 -2.7755575615628914e-17 -5.551115123125783e-17</pose>
+            <link name="floor">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
                 <inertial>
-                    <mass>55.80800000000011</mass>
-                    <pose>-1.1000000000000016 0.8999999999999962 0.6487155963302755 0.0 0.0 0.0</pose>
+                    <mass>3207.2039999999997</mass>
+                    <pose>4.867892145307876 -5.597289227626306 0.025000000000000005 0.0 0.0 0.0</pose>
                     <inertia>
-                        <ixx>31.122476467278375</ixx>
-                        <iyy>7.816236467278486</iyy>
-                        <izz>35.67189333333387</izz>
-                        <ixy>1.6836872379996332e-13</ixy>
-                        <iyz>-8.043697599095931e-14</iyz>
-                        <ixz>-4.250629246177317e-14</ixz>
+                        <ixx>23989.719054845</ixx>
+                        <iyy>35502.759628127766</iyy>
+                        <izz>59491.142347972695</izz>
+                        <ixy>9966.206194311308</ixy>
+                        <iyz>-5.684341886080802e-14</iyz>
+                        <ixz>5.684341886080802e-14</ixz>
                     </inertia>
                 </inertial>
-                <visual name="table_visual">
+                <visual name="floor_visual">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_table.stl</uri>
+                            <uri>meshes/floor.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
                     <material>
-                        <ambient>0.549 0.549 0.549 1</ambient>
-                        <diffuse>0.788 0.788 0.788 1</diffuse>
-                        <specular>0.8 0.8 0.8 1</specular>
+                        <ambient>0.678 0.490 0.243 1</ambient>
+                        <diffuse>0.901 0.690 0.416 1</diffuse>
+                        <specular>0.2 0.2 0.2 1</specular>
                         <emissive>0 0 0 1</emissive>
                     </material>
                 </visual>
-                <collision name="table_collision">
+                <collision name="floor_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_table.stl</uri>
+                            <uri>meshes/floor.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="walls">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <inertial>
+                    <mass>5119.931625</mass>
+                    <pose>5.602528096810765 -5.596818578399961 1.4941361463005864 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>70652.24862203511</ixx>
+                        <iyy>93282.30310471379</iyy>
+                        <izz>155773.67947669612</izz>
+                        <ixy>21604.39291710753</ixy>
+                        <iyz>-42.5507939504314</iyz>
+                        <ixz>-527.0417139873534</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="walls_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/walls.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.541 0.729 0.741 1</ambient>
+                        <diffuse>0.662 0.898 0.910 1</diffuse>
+                        <specular>0 0 0 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="walls_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/walls.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="window_two">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <inertial>
+                    <mass>707.8499999999999</mass>
+                    <pose>-0.2325 -3.0525 1.75 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>663.609375</ixx>
+                        <iyy>132.97109718750016</iyy>
+                        <izz>531.1367221874989</izz>
+                        <ixy>0.0</ixy>
+                        <iyz>4.547473508864641e-13</iyz>
+                        <ixz>0.0</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="window_two_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/window_two.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.541 0.729 0.741 0.4</ambient>
+                        <diffuse>0.662 0.898 0.910 0.4</diffuse>
+                        <specular>0 0 0 0.4</specular>
+                        <emissive>0 0 0 0.4</emissive>
+                    </material>
+                </visual>
+                <collision name="window_two_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/window_two.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="window_one">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <inertial>
+                    <mass>707.8499999999999</mass>
+                    <pose>-0.2325 -6.5525 1.75 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>663.609375</ixx>
+                        <iyy>132.97109718750016</iyy>
+                        <izz>531.1367221874971</izz>
+                        <ixy>0.0</ixy>
+                        <iyz>1.8189894035458565e-12</iyz>
+                        <ixz>0.0</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="window_one_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/window_one.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.541 0.729 0.741 0.4</ambient>
+                        <diffuse>0.662 0.898 0.910 0.4</diffuse>
+                        <specular>0 0 0 0.4</specular>
+                        <emissive>0 0 0 0.4</emissive>
+                    </material>
+                </visual>
+                <collision name="window_one_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/window_one.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="door">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <inertial>
+                    <mass>80.90622930238219</mass>
+                    <pose>4.153415651129651 0.23000000000000004 1.1506027619640562 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>32.39450110252231</ixx>
+                        <iyy>42.121416600180055</iyy>
+                        <izz>9.768176718958557</izz>
+                        <ixy>2.842170943040401e-14</ixy>
+                        <iyz>0.0</iyz>
+                        <ixz>-0.020559487279513178</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="door_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/door.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.400 0.239 0.051 1</ambient>
+                        <diffuse>0.569 0.341 0.078 1</diffuse>
+                        <specular>0.4 0.4 0.4 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="door_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/door.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -276,7 +234,7 @@
             </link>
         </model>
 
-        <model name = "dining_chair_one">
+        <model name="dining_table">
             <static>true</static>
             <link name="chair_one">
                 <pose>1.25 -3.5 1.0 0.0 -0.0 0.0</pose>
@@ -295,7 +253,7 @@
                 <visual name="chair_one_visual">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_chair.stl</uri>
+                            <uri>meshes/chair_one.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -309,16 +267,12 @@
                 <collision name="chair_one_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_chair.stl</uri>
+                            <uri>meshes/chair_one.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
                 </collision>
             </link>
-        </model>
-
-        <model name = "dining_chair_two">
-            <static>true</static>
             <link name="chair_two">
                 <pose>1.25 -4.5 1.0 0.0 -0.0 0.0</pose>
                 <inertial>
@@ -336,7 +290,7 @@
                 <visual name="chair_two_visual">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_chair.stl</uri>
+                            <uri>meshes/chair_two.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -350,16 +304,12 @@
                 <collision name="chair_two_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_chair.stl</uri>
+                            <uri>meshes/chair_two.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
                 </collision>
             </link>
-        </model>
-
-        <model name = "dining_chair_three">
-            <static>true</static>
             <link name="chair_three">
                 <pose>4.010226922721813 -3.286009274305133 1.0 0.0 -0.0 -3.1415926535895293</pose>
                 <inertial>
@@ -377,7 +327,7 @@
                 <visual name="chair_three_visual">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_chair.stl</uri>
+                            <uri>meshes/chair_three.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -391,16 +341,12 @@
                 <collision name="chair_three_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_chair.stl</uri>
+                            <uri>meshes/chair_three.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
                 </collision>
             </link>
-        </model>
-
-        <model name = "dining_chair_four">
-            <static>true</static>
             <link name="chair_four">
                 <pose>4.010226922721549 -2.286009274305132 1.0 -1.2239669982569777e-29 -3.33066907387547e-16 -3.1415926535895293</pose>
                 <inertial>
@@ -418,7 +364,7 @@
                 <visual name="chair_four_visual">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_chair.stl</uri>
+                            <uri>meshes/chair_four.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -432,49 +378,44 @@
                 <collision name="chair_four_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_chair.stl</uri>
+                            <uri>meshes/chair_four.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
-                    
                 </collision>
             </link>
-        </model>
-
-        <model name = "bookshelf">
-            <static>true</static>
-            <link name="bookshelf">
-                <pose>5.6484587045685934 -4.899999999999997 1.05 0.0 -0.0 -3.1415926535889964</pose>
+            <link name="table">
+                <pose>3.75 -4.305 0.04999999999999972 1.1102230246251563e-16 -2.7755575615628914e-17 -5.551115123125783e-17</pose>
                 <inertial>
-                    <mass>2069.603437499998</mass>
-                    <pose>-0.07284243652656311 -5.215058732387876e-16 -5.684341886080802e-16 0.0 0.0 0.0</pose>
+                    <mass>55.80800000000011</mass>
+                    <pose>-1.1000000000000016 0.8999999999999962 0.6487155963302755 0.0 0.0 0.0</pose>
                     <inertia>
-                        <ixx>2426.390938839256</ixx>
-                        <iyy>778.791054508258</iyy>
-                        <izz>1681.807045288122</izz>
-                        <ixy>4.4492109945228865e-12</ixy>
-                        <iyz>3.6379788070902686e-12</iyz>
-                        <ixz>1.818989403548757e-12</ixz>
+                        <ixx>31.122476467278375</ixx>
+                        <iyy>7.816236467278486</iyy>
+                        <izz>35.67189333333387</izz>
+                        <ixy>1.6836872379996332e-13</ixy>
+                        <iyz>-8.043697599095931e-14</iyz>
+                        <ixz>-4.250629246177317e-14</ixz>
                     </inertia>
                 </inertial>
-                <visual name="bookshelf_visual">
+                <visual name="table_visual">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_bookshelf.stl</uri>
+                            <uri>meshes/table.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
                     <material>
-                        <ambient>0.400 0.239 0.051 1</ambient>
-                        <diffuse>0.569 0.341 0.078 1</diffuse>
-                        <specular>0.4 0.4 0.4 1</specular>
+                        <ambient>0.549 0.549 0.549 1</ambient>
+                        <diffuse>0.788 0.788 0.788 1</diffuse>
+                        <specular>0.8 0.8 0.8 1</specular>
                         <emissive>0 0 0 1</emissive>
                     </material>
                 </visual>
-                <collision name="bookshelf_collision">
+                <collision name="table_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_bookshelf.stl</uri>
+                            <uri>meshes/table.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -482,89 +423,7 @@
             </link>
         </model>
 
-        <model name = "sphere">
-            <static>true</static>
-            <link name="sphere">
-                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
-                <inertial>
-                    <mass>513.7812985558306</mass>
-                    <pose>0.55 -4.805000000000001 0.3 0.0 0.0 0.0</pose>
-                    <inertia>
-                        <ixx>12.844532463894211</ixx>
-                        <iyy>12.844532463895774</iyy>
-                        <izz>12.844532463894211</izz>
-                        <ixy>-2.2737367544323206e-13</ixy>
-                        <iyz>0.0</iyz>
-                        <ixz>0.0</ixz>
-                    </inertia>
-                </inertial>
-                <visual name="sphere_visual">
-                    <geometry>
-                        <mesh>
-                            <uri>meshes/world_sphere.stl</uri>
-                            <scale>0.001 0.001 0.001</scale>
-                        </mesh>
-                    </geometry>
-                    <material>
-                        <ambient>0.400 0.239 0.051 1</ambient>
-                        <diffuse>0.569 0.341 0.078 1</diffuse>
-                        <specular>0.4 0.4 0.4 1</specular>
-                        <emissive>0 0 0 1</emissive>
-                    </material>
-                </visual>
-                <collision name="sphere_collision">
-                    <geometry>
-                        <mesh>
-                            <uri>meshes/world_sphere.stl</uri>
-                            <scale>0.001 0.001 0.001</scale>
-                        </mesh>
-                    </geometry>
-                </collision>
-            </link>
-        </model>
-
-        <model name = "box">
-            <static>true</static>
-            <link name="box">
-                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
-                <inertial>
-                    <mass>981.2499999999999</mass>
-                    <pose>0.8 -8.305 0.3 0.0 0.0 0.0</pose>
-                    <inertia>
-                        <ixx>40.88541666670062</ixx>
-                        <iyy>40.885416666666515</iyy>
-                        <izz>40.88541666670062</izz>
-                        <ixy>0.0</ixy>
-                        <iyz>0.0</iyz>
-                        <ixz>-2.842170943040401e-14</ixz>
-                    </inertia>
-                </inertial>
-                <visual name="box_visual">
-                    <geometry>
-                        <mesh>
-                            <uri>meshes/world_box.stl</uri>
-                            <scale>0.001 0.001 0.001</scale>
-                        </mesh>
-                    </geometry>
-                    <material>
-                        <ambient>0.400 0.239 0.051 1</ambient>
-                        <diffuse>0.569 0.341 0.078 1</diffuse>
-                        <specular>0.4 0.4 0.4 1</specular>
-                        <emissive>0 0 0 1</emissive>
-                    </material>
-                </visual>
-                <collision name="box_collision">
-                    <geometry>
-                        <mesh>
-                            <uri>meshes/world_box.stl</uri>
-                            <scale>0.001 0.001 0.001</scale>
-                        </mesh>
-                    </geometry>
-                </collision>
-            </link>
-        </model>
-
-        <model name = "coffee_table">
+        <model name="lounge">
             <static>true</static>
             <link name="coffee_table">
                 <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
@@ -583,7 +442,7 @@
                 <visual name="coffee_table_visual">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_coffee_table.stl</uri>
+                            <uri>meshes/coffee_table.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -594,19 +453,15 @@
                         <emissive>0 0 0 1</emissive>
                     </material>
                 </visual>
-                <collision name="coffee_table_col_collision">
+                <collision name="coffee_table_collision">
                     <geometry>
                         <mesh>
-                            <uri>meshes/coffee_table_col.stl</uri>
+                            <uri>meshes/coffee_table.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
                 </collision>
             </link>
-        </model>
-
-        <model name = "sofa">
-            <static>true</static>
             <link name="sofa">
                 <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
                 <inertial>
@@ -624,7 +479,7 @@
                 <visual name="sofa_visual">
                     <geometry>
                         <mesh>
-                            <uri>meshes/world_sofa.stl</uri>
+                            <uri>meshes/sofa.stl</uri>
                             <scale>0.001 0.001 0.001</scale>
                         </mesh>
                     </geometry>
@@ -635,7 +490,7 @@
                         <emissive>0 0 0 1</emissive>
                     </material>
                 </visual>
-                <collision name="sofa_col_collision">
+                <collision name="sofa_collision">
                     <geometry>
                         <mesh>
                             <uri>meshes/sofa_col.stl</uri>
@@ -644,9 +499,534 @@
                     </geometry>
                 </collision>
             </link>
+            <link name="Bookshelf">
+                <pose>5.6484587045685934 -4.899999999999997 1.05 0.0 -0.0 -3.1415926535889964</pose>
+                <inertial>
+                    <mass>2069.603437499998</mass>
+                    <pose>-0.07284243652656311 -5.215058732387876e-16 -5.684341886080802e-16 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>2426.390938839256</ixx>
+                        <iyy>778.791054508258</iyy>
+                        <izz>1681.807045288122</izz>
+                        <ixy>4.4492109945228865e-12</ixy>
+                        <iyz>3.6379788070902686e-12</iyz>
+                        <ixz>1.818989403548757e-12</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="Bookshelf_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/Bookshelf.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.400 0.239 0.051 1</ambient>
+                        <diffuse>0.569 0.341 0.078 1</diffuse>
+                        <specular>0.4 0.4 0.4 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="Bookshelf_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/Bookshelf.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="sphere">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <inertial>
+                    <mass>513.7812985558306</mass>
+                    <pose>0.55 -4.805000000000001 0.3 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>12.844532463894211</ixx>
+                        <iyy>12.844532463895774</iyy>
+                        <izz>12.844532463894211</izz>
+                        <ixy>-2.2737367544323206e-13</ixy>
+                        <iyz>0.0</iyz>
+                        <ixz>0.0</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="sphere_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/sphere.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.400 0.239 0.051 1</ambient>
+                        <diffuse>0.569 0.341 0.078 1</diffuse>
+                        <specular>0.4 0.4 0.4 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="sphere_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/sphere.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="box">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <inertial>
+                    <mass>981.2499999999999</mass>
+                    <pose>0.8 -8.305 0.3 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>40.88541666670062</ixx>
+                        <iyy>40.885416666666515</iyy>
+                        <izz>40.88541666670062</izz>
+                        <ixy>0.0</ixy>
+                        <iyz>0.0</iyz>
+                        <ixz>-2.842170943040401e-14</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="box_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/box.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.400 0.239 0.051 1</ambient>
+                        <diffuse>0.569 0.341 0.078 1</diffuse>
+                        <specular>0.4 0.4 0.4 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="box_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/box.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
         </model>
 
+        <model name="kitchen">
+            <static>true</static>
+            <link name="kitchen_table">
+                <pose>0.0 5.0 0.0 0.0 -0.0 0.0</pose>
+                <inertial>
+                    <mass>377.32098565940254</mass>
+                    <pose>9.49 -12.200000000000001 0.5608823529411758 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>36.77148590316938</ixx>
+                        <iyy>36.771485903176654</iyy>
+                        <izz>24.96977110980515</izz>
+                        <ixy>1.8189894035458565e-11</ixy>
+                        <iyz>-2.2737367544323206e-13</iyz>
+                        <ixz>0.0</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="kitchen_table_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/kitchen_table.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.400 0.239 0.051 1</ambient>
+                        <diffuse>0.569 0.341 0.078 1</diffuse>
+                        <specular>0.4 0.4 0.4 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="kitchen_table_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/kitchen_table.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="kitchen_chair">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <inertial>
+                    <mass>27.205549716217178</mass>
+                    <pose>8.675596019647182 -7.193004637152666 0.48979960206939355 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>1.9641457577624806</ixx>
+                        <iyy>2.332885619681747</iyy>
+                        <izz>1.4065995779355944</izz>
+                        <ixy>4.547473508864641e-13</ixy>
+                        <iyz>0.0</iyz>
+                        <ixz>0.5375811180004746</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="kitchen_chair_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/kitchen_chair.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.400 0.239 0.051 1</ambient>
+                        <diffuse>0.569 0.341 0.078 1</diffuse>
+                        <specular>0.4 0.4 0.4 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="kitchen_chair_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/kitchen_chair.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+        </model>
 
+        <model name="kitchen_counter">
+            <static>true</static>
+            <link name="counters">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>33676.5</mass>
+                    <pose>0.4979020979020992 2.8795804195804267 0.36730769230769234 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>96721.02081652245</ixx>
+                        <iyy>4381.6425284090765</iyy>
+                        <izz>98009.92185454536</izz>
+                        <ixy>156.87264335651687</ixy>
+                        <iyz>575.1996923076474</iyz>
+                        <ixz>19.972211538463974</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="counters_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/counters.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.22 0.22 0.24 1</ambient>
+                        <diffuse>0.55 0.55 0.60 1</diffuse>
+                        <specular>0.90 0.90 0.95 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="counters_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/counters.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="top">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>2189.9331303487857</mass>
+                    <pose>0.5192892572387423 2.7098278401923954 0.7750994079092629 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>5765.126654062649</ixx>
+                        <iyy>211.67459298436154</iyy>
+                        <izz>5975.8363748102565</izz>
+                        <ixy>29.891839060040347</ixy>
+                        <iyz>-0.5203325292695977</iyz>
+                        <ixz>0.07196079572338343</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="top_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/top.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.18 0.12 0.05 1</ambient>
+                        <diffuse>0.52 0.36 0.18 1</diffuse>
+                        <specular>0.20 0.16 0.10 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="top_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/top.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="oven_door">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>67.70625</mass>
+                    <pose>1.0095289855072491 2.4000000000000052 0.4136956521739131 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>6.701994028532695</ixx>
+                        <iyy>2.1101460388360964</iyy>
+                        <izz>4.603445760301838</izz>
+                        <ixy>3.259016077014604e-13</ixy>
+                        <iyz>-5.027868086846594e-14</iyz>
+                        <ixz>-0.029027934782618586</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="oven_door_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/oven-door.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.02 0.02 0.02 1</ambient>
+                        <diffuse>0.05 0.05 0.06 1</diffuse>
+                        <specular>0.95 0.95 0.95 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="oven_door_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/oven-door.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="stove_top">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>66.80885139538091</mass>
+                    <pose>0.527184349643448 2.4000000000000052 0.805 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>4.510154209616314</ixx>
+                        <iyy>4.979032963941119</iyy>
+                        <izz>9.48807369269889</izz>
+                        <ixy>-8.031802402006982e-13</ixy>
+                        <iyz>5.684341886082094e-14</iyz>
+                        <ixz>-5.6839304064751085e-14</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="stove_top_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/stove_top.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.02 0.02 0.02 1</ambient>
+                        <diffuse>0.05 0.05 0.06 1</diffuse>
+                        <specular>0.95 0.95 0.95 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="stove_top_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/stove_top.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="k_door_one">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>71.75069436940348</mass>
+                    <pose>1.0100782795262162 0.5985067225216502 0.39455805147919865 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>5.468557478624474</ixx>
+                        <iyy>2.5179359000776502</iyy>
+                        <izz>2.9556708812242505</izz>
+                        <ixy>0.0018976356348198034</ixy>
+                        <iyz>0.002133445533331751</iyz>
+                        <ixz>-0.00011183795905318956</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="k_door_one_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_one.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.18 0.12 0.05 1</ambient>
+                        <diffuse>0.52 0.36 0.18 1</diffuse>
+                        <specular>0.20 0.16 0.10 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="k_door_one_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_one.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="k_door_two">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>71.75069436940348</mass>
+                    <pose>1.010078279526215 1.4985067225216522 0.39455805147919865 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>5.4685574786235644</ixx>
+                        <iyy>2.5179359000776502</iyy>
+                        <izz>2.9556708812224315</izz>
+                        <ixy>0.0018976356348198034</ixy>
+                        <iyz>0.0021334455333033293</iyz>
+                        <ixz>-0.00011183795911003298</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="k_door_two_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_two.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.18 0.12 0.05 1</ambient>
+                        <diffuse>0.52 0.36 0.18 1</diffuse>
+                        <specular>0.20 0.16 0.10 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="k_door_two_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_two.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="k_door_three">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>71.75069436940348</mass>
+                    <pose>1.0100782795262162 3.298506722521657 0.39455805147919865 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>5.468557478622655</ixx>
+                        <iyy>2.5179359000771955</iyy>
+                        <izz>2.9556708812224315</izz>
+                        <ixy>0.0018976356357292981</ixy>
+                        <iyz>0.0021334455333885944</iyz>
+                        <ixz>-0.00011183795905318956</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="k_door_three_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_three.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.18 0.12 0.05 1</ambient>
+                        <diffuse>0.52 0.36 0.18 1</diffuse>
+                        <specular>0.20 0.16 0.10 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="k_door_three_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_three.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="k_door_four">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>71.75069436940348</mass>
+                    <pose>1.0100782795262153 4.198506722521658 0.39455805147919865 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>5.468557478622655</ixx>
+                        <iyy>2.5179359000771955</iyy>
+                        <izz>2.955670881219703</izz>
+                        <ixy>0.0018976356357292981</ixy>
+                        <iyz>0.002133445533331751</iyz>
+                        <ixz>-0.00011183795908161127</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="k_door_four_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_four.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.18 0.12 0.05 1</ambient>
+                        <diffuse>0.52 0.36 0.18 1</diffuse>
+                        <specular>0.20 0.16 0.10 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="k_door_four_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_four.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+            <link name="k_door_five">
+                <pose>5.849999999999993 -4.410000000001331 0.05 -9.807798241791999e-32 -4.336808689942018e-19 -1.5707963267946705</pose>
+                <inertial>
+                    <mass>71.75069436940348</mass>
+                    <pose>1.0100782795262153 5.098506722521661 0.39455805147919865 0.0 0.0 0.0</pose>
+                    <inertia>
+                        <ixx>5.4685574786235644</ixx>
+                        <iyy>2.5179359000771955</iyy>
+                        <izz>2.955670881219703</izz>
+                        <ixy>0.0018976356352745508</ixy>
+                        <iyz>0.002133445533331751</iyz>
+                        <ixz>-0.00011183795902476785</ixz>
+                    </inertia>
+                </inertial>
+                <visual name="k_door_five_visual">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_five.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                    <material>
+                        <ambient>0.18 0.12 0.05 1</ambient>
+                        <diffuse>0.52 0.36 0.18 1</diffuse>
+                        <specular>0.20 0.16 0.10 1</specular>
+                        <emissive>0 0 0 1</emissive>
+                    </material>
+                </visual>
+                <collision name="k_door_five_collision">
+                    <geometry>
+                        <mesh>
+                            <uri>meshes/k_door_five.stl</uri>
+                            <scale>0.001 0.001 0.001</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+            </link>
+        </model>
+        
         <model name="person_standing">
             <static>true</static>
             <link name="body">
