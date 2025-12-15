@@ -1,23 +1,17 @@
 # **IAM Bot**
-This is ROS2 Jazzy workspace consisting of multiple packages capable of launching IAM Bot in a Gazebo simulated environment with visualisation in rviz
+IAM Bot is a ROS2 Jazzy workspace designed to launch and simulate a mobile robot in Gazebo (Harmonic).
+It includes environment mapping and navigation using SLAM
 
 # **Robot Features**
-- LIDAR - for SLAM mapping and navigation
-- Odometry Sensor - for SLAM mapping and navigation
-- Camera - for facial recognition
+- Fully defined **URDF robot model** with differential drive wheels, lidar & camera. :contentReference[oaicite:1]{index=1}
+- **SLAM-ready** configuration for mapping, localisation and navigation. :contentReference[oaicite:2]{index=2}
+- **Gazebo simulation** with world assets and physics. :contentReference[oaicite:3]{index=3}
+- **Camera** for facial recognition
+- **Lidar** for environment perception :contentReference[oaicite:4]{index=4}
 
 ## **Packet Structure**
 ```
 robot_workspace
-├── camera_publisher
-│   ├── build
-│   ├── CMakeLists.txt
-│   ├── config
-│   ├── include
-│   │   └── camera_publisher
-│   ├── package.xml
-│   └── src
-│       └── camera_publisher_node.cpp
 ├── face_detector
 │   ├── build
 │   ├── CMakeLists.txt
@@ -30,35 +24,19 @@ robot_workspace
 │   ├── build
 │   ├── CMakeLists.txt
 │   ├── config
-│   ├── include
-│   │   └── iam_bot
-│   ├── install
-│   │   └── iam_bot
-│   │       └── share
-│   │           ├── colcon-core
-│   │           │   └── packages
-│   │           └── iam_bot
+│   ├── include/
+│   ├── install/
 │   ├── launch
 │   │   └── iam_gazebo_launch.py
 │   ├── meshes
 │   │   ├── base_link_col.stl
-│   │   ├── base_link.stl
-│   │   ├── left_caster_connector.stl
-│   │   ├── left_caster_wheel.stl
-│   │   ├── left_wheel.stl
-│   │   ├── right_caster_connector.stl
-│   │   ├── right_caster_wheel.stl
-│   │   ├── right_wheel.stl
+│   │   ├── ...
 │   │   └── top_lidar_sensor.stl
 │   ├── package.xml
 │   ├── urdf
 │   │   └── iam_bot.urdf
 │   └── worlds
-│       ├── materials
-│       │   └── textures
-│       │       ├── eyebrow001.png
-│       │       ├── ...
-│       │       └── young_lightskinned_male_diffuse.png
+│       ├── materials/
 │       ├── meshes
 │       │   ├── coffee_table_col.stl
 │       │   ├── ...
@@ -84,14 +62,9 @@ robot_workspace
 ```
 
 ## **Package Contents**
-- iam_bot
-    - Complete Robot structure using stl's with a URDF file
-    - World file with relevant stl's and textures
-    - Python launch file allowing the robot to spawn in the Gazebo environment
-- iam_navigation
-    - SLAM Mapping launch file
-    - Shows the robots position in rviz and the generation of its map
-    - maps file where saved maps are stored
+- `face_detector` — Uses the robots camera for face detection :contentReference[oaicite:6]{index=6}
+- `iam_bot` — core robot model, launch rviz and gazebo files and simulation config :contentReference[oaicite:7]{index=7}
+- `iam_navigation` — mapping,navigation SLAM config and launch setups :contentReference[oaicite:8]{index=8}
 
 ## **IAM Bot's Tree Structure**
 ```
@@ -106,20 +79,17 @@ base_link
 ```
 
 ## **Dependencies**
-- ROS2 Jazzy
-- Gazebo Harmonic
-- ros-jazzy-joint-state-publisher
-- ros-jazzy-joint-state-publisher-gui
-- ros-jazzy-ros-gz
-- ros-jazzy-ros-gz-bridge
-- ros-jazzy-slam-toolbox
-- ros-jazzy-navigation2
-- ros-jazzy-teleop-twist-keyboard
-- opencv
-- ros-jazzy-slam-toolbox
-- ros-jazzy-rviz-imu-plugin
-- ros-jazzy-nav2-bringup 
-- ros-jazzy-nav2-amcl
+- **ROS2 Jazzy** (installed & sourced)
+- **Gazebo Harmonic**
+- `colcon` build tools
+- ROS2 packages:
+  - `ros-jazzy-ros-gz`
+  - `ros-jazzy-ros-gz-bridge`
+  - `ros-jazzy-slam-toolbox`
+  - `ros-jazzy-navigation2`
+  - `ros-jazzy-joint-state-publisher`
+  - `ros-jazzy-joint-state-publisher-gui`
+  - OpenCV
 
 ## **Running the Package**
 This will take you through the steps on how to get iam bot running
