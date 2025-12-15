@@ -3,11 +3,11 @@ IAM Bot is a ROS2 Jazzy workspace designed to launch and simulate a mobile robot
 It includes environment mapping and navigation using SLAM
 
 # **Robot Features**
-- Fully defined **URDF robot model** with differential drive wheels, lidar & camera. :contentReference[oaicite:1]{index=1}
-- **SLAM-ready** configuration for mapping, localisation and navigation. :contentReference[oaicite:2]{index=2}
-- **Gazebo simulation** with world assets and physics. :contentReference[oaicite:3]{index=3}
+- Fully defined **URDF robot model** with differential drive wheels, lidar & camera.
+- **SLAM-ready** configuration for mapping, localisation and navigation.
+- **Gazebo simulation** with world assets and physics.
 - **Camera** for facial recognition
-- **Lidar** for environment perception :contentReference[oaicite:4]{index=4}
+- **Lidar** for environment perception
 
 ## **Packet Structure**
 ```
@@ -62,9 +62,9 @@ robot_workspace
 ```
 
 ## **Package Contents**
-- `face_detector` — Uses the robots camera for face detection :contentReference[oaicite:6]{index=6}
-- `iam_bot` — core robot model, launch rviz and gazebo files and simulation config :contentReference[oaicite:7]{index=7}
-- `iam_navigation` — mapping,navigation SLAM config and launch setups :contentReference[oaicite:8]{index=8}
+- `face_detector` — Uses the robots camera for face detection
+- `iam_bot` — core robot model, launch rviz and gazebo files and simulation config
+- `iam_navigation` — mapping,navigation SLAM config and launch setups
 
 ## **IAM Bot's Tree Structure**
 ```
