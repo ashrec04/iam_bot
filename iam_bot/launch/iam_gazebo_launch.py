@@ -44,6 +44,14 @@ def generate_launch_description():
     urdf_path = os.path.join(pkg_path, 'urdf', 'iam_bot.urdf')
     world_path = os.path.join(pkg_path, 'worlds', 'room.world')
 
+    # enables face detector node only if iam_navigation_launch is running
+    face_detector_enabled_arg = DeclareLaunchArgument(
+        'face_detector_enabled',
+        default_value='true',
+        description='Enable face detector node'
+    )
+    face_detector_enabled = LaunchConfiguration('face_detector_enabled')
+
     #let Gazebo find meshes
     mesh_pkg_dir = os.path.dirname(pkg_path)
     os.environ["GZ_SIM_RESOURCE_PATH"] = os.environ.get('GZ_SIM_RESOURCE_PATH', '') + os.pathsep + mesh_pkg_dir
@@ -84,6 +92,7 @@ def generate_launch_description():
         executable='face_detector_node',
         name='face_detector',
         output='screen',
+        condition=IfCondition(face_detector_enabled),
         remappings=[
             ('/camera/image_raw','/camera/image')
         ]
@@ -121,6 +130,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        face_detector_enabled_arg,
         gz_resource_path,
         ign_resource_path,
         robot_state_publisher,

@@ -13,7 +13,8 @@ def generate_launch_description():
     mapping_launch_file = os.path.join(mapping_launch_dir, 'mapping_launch.py')
 
     gazebo_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(iam_bot_dir, 'launch', 'iam_gazebo_launch.py'))
+        PythonLaunchDescriptionSource(os.path.join(iam_bot_dir, 'launch', 'iam_gazebo_launch.py')),
+        launch_arguments={'face_detector_enabled': 'false'}.items() # disables face detector for mapping
     )
     mapping_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(mapping_launch_file)
