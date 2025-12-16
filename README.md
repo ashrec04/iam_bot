@@ -13,10 +13,8 @@ It includes environment mapping and navigation using SLAM
 ```
 robot_workspace
 ├── face_detector
-│   ├── build
 │   ├── CMakeLists.txt
-│   ├── config
-│   ├── include
+│   ├── include/
 │   ├── package.xml
 │   └── src
 │       └── face_detector_node.cpp
@@ -27,7 +25,9 @@ robot_workspace
 │   ├── include/
 │   ├── install/
 │   ├── launch
-│   │   └── iam_gazebo_launch.py
+│   │   ├── iam_gazebo_launch.py
+│   │   ├── iam_mapping_launch.py
+│   │   └── iam_navigation_launch.py
 │   ├── meshes
 │   │   ├── base_link_col.stl
 │   │   ├── ...
@@ -38,26 +38,35 @@ robot_workspace
 │   └── worlds
 │       ├── materials/
 │       ├── meshes
-│       │   ├── coffee_table_col.stl
+│       │   ├── Bookshelf.stl
 │       │   ├── ...
-│       │   └── world_window_two.stl
+│       │   └── window_two.stl
 │       ├── model.config
 │       └── room.world
 ├── iam_navigation
 │   ├── CMakeLists.txt
 │   ├── config
-│   │   └── slam_toolbox_mapping.yaml
+│   │   ├── navigation.yaml
+│   │   ├── slam_toolbox_mapping_no_map.yaml
+│   │   ├── slam_toolbox_mapping_pose_one.yaml
+│   │   └── slam_toolbox_mapping_pose_two.yaml
 │   ├── include
 │   │   └── iam_navigation
 │   ├── launch
-│   │   └── iam_navigation_launch.py
+│   │   ├── mapping_launch.py
+│   │   └── navigation_launch.py
 │   ├── LICENSE
+│   ├── maps
+│   │   ├── map_save.pgm
+│   │   ├── map_save.yaml
+│   │   ├── map_serialize.data
+│   │   └── map_serialize.posegraph
 │   ├── package.xml
 │   ├── rviz
-│   │   └── rviz.rviz
+│   │   ├── mapping.rviz
+│   │   └── navigation.rviz
 │   └── src
 └── README.md
-
 
 ```
 
