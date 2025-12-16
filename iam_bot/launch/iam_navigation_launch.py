@@ -27,7 +27,7 @@ def generate_launch_description():
 
     nav_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(nav_launch_file)
-        )
+    )
 
     delayed_nav_launch = TimerAction(
         period=nav_start_delay,
